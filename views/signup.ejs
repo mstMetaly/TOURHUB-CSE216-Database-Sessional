@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Tour</title>
+    <link rel="stylesheet"href="style.css"
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="register-box">
+        <h2></h2>
+        <h1>Sign Up</h1>
+        <form action="/signup" method="post" >
+
+          <div class="Input">
+            <span class="icon"><ion-icon name="mail-open"></ion-icon></span>
+            <input type="email" name="email" required />
+            <label>Email</label>
+          </div>
+
+          <% if(errors=="User already exists with this email"){ %>
+            <p style="color:red"><%= errors %></p>
+            <% } %>
+
+          <div class="Input">
+            <span class="icon"><ion-icon name="people"></ion-icon></span>
+            <input type="text" name="username" required />
+            <label>Username</label>
+          </div>
+
+          <% if(errors=="Username already exists"){ %>
+            <p style="color:red"><%= errors %></p>
+            <% } %>
+
+          <div class="Input">
+            <span class="icon"><ion-icon name="lock-open"></ion-icon></span>
+            <input type="password" name="password" required />
+            <label>Password</label>
+          </div>
+
+          <div class="Input">
+            <span class="icon"><ion-icon name="lock-open"></ion-icon></span>
+            <input type="password" name="confirmPassword" required />
+            <label>Confirm Password</label>
+          </div>
+
+          <% if(errors=="Password doesn't match"){ %>
+            <p style="color:red"><%= errors %></p>
+            <% } %>
+
+
+          <div class="check">
+            <label
+              ><input type="checkbox" /> I agreed to the terms and
+              conditions</label
+            >
+          </div>
+          <button type="Submit" class="button">Register</button>
+          <div class="login_Register">
+            <p>
+              Already have an account?<a href="/login" class="login-link">Login </a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Tour</title>
+    <link rel="stylesheet"href="style.css"
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="login-box">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+
+          <div class="Input">
+            <span class="icon"><ion-icon name="mail-open"></ion-icon></span>
+            <input type="email" name="email" required />
+            <label>Email</label>
+
+            <% if(errors=="No account found with this gmail"){ %>
+                <p style="color:red"><%= errors %></p>
+                <% } %>
+
+          </div>
+
+          
+
+          <div class="Input">
+            <span class="icon"><ion-icon name="lock-open"></ion-icon></span>
+            <input type="password" name="password" required />
+            <label>Password</label>
+
+            <% if(errors=="Wrong Password"){ %>
+                <p style="color:red"><%= errors %></p>
+                <% } %>
+
+          </div>
+
+          <div class="Admin_User">
+            <select
+              name="choice"
+              class="form-select"
+              aria-label="Default select example"
+            >
+              <option selected>Login as</option>
+              <option value="1">User</option>
+              <option value="2">Admin</option>
+            </select>
+          </div>
+
+          <div class="check">
+            <label><input type="checkbox" /> Remember me</label>
+            <a href="#">Forgot Password?</a>
+          </div>
+
+          <button type="Submit" class="button">Login</button>
+          <div class="login_Register">
+            <p>
+              Don't have an account?<a href="/signup" class="register-link"
+                >Sign Up
+              </a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

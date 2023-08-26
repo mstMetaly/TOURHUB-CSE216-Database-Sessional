@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-image: url(back.jpg);
+}
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 560px;
+  background: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*transition: height 0.2s ease;*/
+  /*overflow: hidden;*/
+}
+
+.wrapper .login-box {
+  width: 90%;
+  padding: 40px;
+}
+.wrapper .login-box {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+.wrapper.active .login-box {
+  transition: none;
+  transform: translateX(-400px);
+}
+.login-box h2 {
+  font-size: 2em;
+  color: #162938;
+  text-align: center;
+}
+.wrapper .register-box {
+  position: absolute;
+  transition: none;
+  transform: translateX(0);
+}
+.wrapper.active .register-box {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+.register-box {
+  width: 90%;
+  padding: 30px;
+}
+.wrapper .register-box h1 {
+  font-size: 2em;
+  color: #162938;
+  text-align: center;
+}
+.Input {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid #162938;
+  margin: 30px 0;
+}
+.Input label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translate(1%);
+  font-size: 1em;
+  color: #162938;
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.Input input:focus ~ label,
+.Input input:valid ~ label {
+  top: -5px;
+}
+.Input input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #162938;
+  font-weight: 600;
+  padding: 0 35px 0 5px;
+}
+.Input .icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  color: #162938;
+  line-height: 57px;
+}
+.check {
+  font-size: 0.9em;
+  color: #162938;
+  font-weight: 500;
+  margin: 20px 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.check label input {
+  accent-color: #162938;
+  margin-right: 3px;
+}
+.check a {
+  color: #162938;
+  text-decoration: none;
+}
+.check a:hover {
+  text-decoration: underline;
+}
+.button {
+  width: 100%;
+  height: 45px;
+  background: #162938;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+}
+.login_Register {
+  font-size: 0.9em;
+  color: #162938;
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 0 10px;
+}
+.login_Register p a {
+  color: #162938;
+  text-decoration: none;
+  font-weight: 600;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.login_Register p a:hover {
+  text-decoration: underline;
+}
+.Admin_User {
+  display: flex;
+}
+
+.form-select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 300px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+  text-align: center;
+}
+
+.form-select:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+.form-select option {
+  background-color: #fff;
+  color: #162938;
+}
+
+.glass {
+  width: 930px;
+  height: 520px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 1);
+  background-image: url(front.jpg);
+  background-position: center;
+  background-size: cover;
+}
+nav {
+  display: flex;
+  padding: 30px 8%;
+}
+.logo {
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+nav ul {
+  flex: 1;
+  text-align: right;
+}
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  transition: 0.1s ease-out;
+}
+
+nav ul li:hover {
+  border-bottom: 2px solid #fff;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #fff;
+  font-weight: bold;
+}
+img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -7px;
+  transition: 0.1s ease;
+}
+img:hover {
+  border: 2px solid #fff;
+}
+
+h3 {
+  color: #fff;
+  margin: 100px 110px -25px;
+  font-style: italic;
+  font-weight: 100;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.glass h1 {
+  color: #fff;
+  margin: 0 115px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 115px;
+  letter-spacing: 10px;
+  opacity: 0.6;
+
+  background-image: linear-gradient(45deg, #000, #fff, #000, #fff, #000);
+  background-size: 100%;
+  background-clip: padding-box;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.icons i {
+  color: #fff;
+}
+
+.icons {
+  display: flex;
+  margin-top: 80px;
+  margin-right: 50px;
+}
+.icons ul {
+  flex: 1;
+  text-align: right;
+}
+.icons ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 15px;
+  padding: 10px;
+}
+.icons ul li i {
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.1s all;
+}
+.icons ul li i:hover {
+  color: aqua;
+}
