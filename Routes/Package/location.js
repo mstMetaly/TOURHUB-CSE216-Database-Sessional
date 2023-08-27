@@ -6,15 +6,20 @@ const  packageDetails_query = require('../../Database/packageDetails_query');
 
 const router = express.Router();
 
-router.get('/location' , async(req , res)=>{
+router.get('/location/:tourId' , async(req , res)=>{
     if(req.user == null)
     {
         res.redirect('/login');
     }
     else{
         let locations = [];
+        
+        //get the tourId
+        const tourId = req.params.tourId;
 
-        locations =  await packageDetails_query.getAllLocationByTourId(1);
+        console.log("/location e : tourId",tourId);
+
+        locations =  await packageDetails_query.getAllLocationByTourId(tourId);
         
         return res.json(locations);
     }

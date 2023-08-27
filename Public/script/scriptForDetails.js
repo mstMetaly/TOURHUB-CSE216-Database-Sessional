@@ -1,8 +1,11 @@
 //script for packageDetails.ejs file
 
-async function fetchLocations()
+async function fetchLocations(tourId)
 {
-    const response = await fetch('/location');
+    //this will fetch all locations for a tour
+    console.log("fetch location er moddhe tourId:",tourId);
+
+    const response = await fetch(`/location/${tourId}`);
     const locations = await response.json();
 
     locations.forEach(location => {
@@ -33,4 +36,4 @@ async function fetchLocations()
 
 }
 
-fetchLocations();
+fetchLocations(tourId);

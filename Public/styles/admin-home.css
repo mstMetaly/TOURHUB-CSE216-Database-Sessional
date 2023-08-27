@@ -54,4 +54,54 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li {
     background-color: #333;
     color: white;
   }
+
+  /*CSS for see all user info */
+
+  .user-card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in-out;
+  }
   
+  .user-card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* css for seeAllPackages in admin home page*/
+  /* Inside your admin-home.css */
+
+.pack-card {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.pack-card:hover {
+  transform: scale(1.05);
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.update-btn, .delete-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.update-btn:hover, .delete-btn:hover {
+  background-color: #2980b9;
+}

@@ -21,6 +21,7 @@ const packageDetailsRoute = require('./Routes/Package/packageDetails');
 const locationRoute = require('./Routes/Package/location');
 const bookingRoute = require('./Routes/Booking/booking');
 const adminHomeRouter = require('./Routes/Admin/adminHome');
+const fetchAdminHomeRouter = require('./Routes/Admin/fetchAdminHome');
 
 
 
@@ -54,10 +55,11 @@ app.use('/',packageDetailsRoute);
 app.use('/',locationRoute);
 app.use('/',bookingRoute);
 app.use('/',adminHomeRouter);
+app.use('/',fetchAdminHomeRouter);
 
 
 app.get("/",(req,res)=>{
-    res.render('firstPage');
+    res.render('index');
 });
 
 const PORT=3000;

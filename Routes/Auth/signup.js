@@ -2,6 +2,7 @@ const express=require("express");
 const users_query=require('../../Database/users_query');
 
 const authUtils= require('../../middlewares/auth-utils');
+const e = require("express");
 
 const router=express.Router();
 
@@ -49,16 +50,18 @@ router.post('/signup',async(req,res)=>{
         {
             if(password==confirmPassword)
             {
-                users_query.insertUser(insertSql,insertBindings);
-                //login the user 
-                
-                //let result2=await users_query.getUserByEmail(gmail);
+                if(password.length < 8)
+                {
+                    errors.push("Password should be 8 characters or more");
+                }
+                else{
+                    users_query.insertUser(insertSql,insertBindings);
 
-                //console.log("result2:",result2);
+                    await authUtils.loginUser(res,gmail);
 
-                await authUtils.loginUser(res,gmail);
+                    res.redirect('/login');
+                }
 
-                res.redirect('/login');
             }
             else{
                 errors.push("Password doesn't match");

@@ -6,14 +6,16 @@ const  packageDetails_query = require('../../Database/packageDetails_query');
 const router = express.Router();
 
 //packages Details router 
-router.get('/packageDetails' , async(req,res)=>{
+router.get('/packageDetails/:tourId' , async(req,res)=>{
     if(req.user == null)
     {
         res.redirect('/login');
     }
     else{
         //render details page 
-        res.render('packageDetails');
+        const tourId = req.params.tourId;
+        
+        res.render('packageDetails',{tourId});
     }
 });
 

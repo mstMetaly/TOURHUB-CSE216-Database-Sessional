@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-//routes for adminHome
+//routes for rendering adminHome
 router.get('/adminHome', async(req,res)=>{
     if(req.admin == null)
     {
@@ -12,7 +12,7 @@ router.get('/adminHome', async(req,res)=>{
     }
 });
 
-//routes for seeAllUsers
+//routes for rendering seeAllUsers
 router.get('/seeAllUsers' , async(req,res)=>{
     if(req.admin==null)
     {
@@ -23,7 +23,7 @@ router.get('/seeAllUsers' , async(req,res)=>{
     }
 });
 
-//routes for seeAllPackages
+//routes for rendering seeAllPackages
 router.get('/seeAllPackages', async(req,res)=>{
     if(req.admin == null)
     {
@@ -34,7 +34,7 @@ router.get('/seeAllPackages', async(req,res)=>{
     }
 });
 
-//routes for addNewPackage
+//routes for rendering addNewPackage
 router.get('/addNewPackage' , async(req,res)=>{
     if(req.admin == null)
     {
@@ -45,7 +45,7 @@ router.get('/addNewPackage' , async(req,res)=>{
     }
 });
 
-//routes for notifications
+//routes for rendering notifications
 router.get('/notifications' ,async(req,res)=>{
     if(req.admin == null)
     {
@@ -56,7 +56,7 @@ router.get('/notifications' ,async(req,res)=>{
     }
 });
 
-//routes for adminMyProfile
+//routes for rendering adminMyProfile
 router.get('/adminMyProfile',async(req,res)=>{
     if(req.admin==null)
     {
@@ -66,5 +66,6 @@ router.get('/adminMyProfile',async(req,res)=>{
         res.render('adminMyProfile');
     }
 });
+
 
 module.exports = router;

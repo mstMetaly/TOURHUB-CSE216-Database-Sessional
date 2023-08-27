@@ -72,10 +72,11 @@ router.post('/confirmBooking/:tourId' ,async(req,res)=>{
 
         //insert USER_ID and TOUR_ID into TOUR_HISTORY table
 
-        const insertSql2 = `INSERT INTO TOUR_HISTORY VALUES (:user_id,:tour_id)`;
+        const insertSql2 = `INSERT INTO TOUR_HISTORY VALUES (:user_id,:tour_id,:booking_id)`;
         const insertBindings2 = {
             user_id:req.user.user_id,
-            tour_id : tour_Id
+            tour_id : tour_Id,
+            booking_id:insertBindings.booking_id
         };
 
         confirmBooking_query.insertIntoTourHistory(insertSql2,insertBindings2);

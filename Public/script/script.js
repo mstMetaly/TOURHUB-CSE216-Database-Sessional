@@ -80,7 +80,7 @@ async function fetchTours()
 
       <div class="price $">"${tour.Price}"<span>$120.00</span></div>
       
-      <a href="/packageDetails" class="btn">Details</a>
+      <a href="/packageDetails/${tour.TOUR_ID}" class="btn">Details</a>
       <a href="/booking/${tour.TOUR_ID}" class="btn">Book Now</a>
     </div>
   `;
