@@ -2,7 +2,7 @@ const express=require("express");
 
 const router=express.Router();
 
-const logoutRouter=require('../Routes/logout');
+const logoutRouter=require('../Auth/logout');
 
 router.get('/home',(req,res)=>{
     if(req.user == null)

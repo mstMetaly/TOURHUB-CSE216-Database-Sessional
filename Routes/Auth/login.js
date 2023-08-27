@@ -1,9 +1,9 @@
 const express = require("express");
 const bcrypt = require('bcrypt');
 
-const users_query = require('../Database/users_query');
-const authUtils = require('../middlewares/auth-utils');
-const authentication = require('../middlewares/authentication');
+const users_query = require('../../Database/users_query');
+const authUtils = require('../../middlewares/auth-utils');
+const authentication = require('../../middlewares/authentication');
 
 const router = express.Router();
 

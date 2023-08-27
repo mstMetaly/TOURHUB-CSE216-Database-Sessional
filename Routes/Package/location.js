@@ -2,7 +2,7 @@ const express = require('express');
 
 
 //package details niye ashhbo query kore
-const  packageDetails_query = require('../Database/packageDetails_query');
+const  packageDetails_query = require('../../Database/packageDetails_query');
 
 const router = express.Router();
 

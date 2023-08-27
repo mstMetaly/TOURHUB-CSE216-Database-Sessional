@@ -1,7 +1,7 @@
 const express = require('express');
 
 //importing packages_query to find all packages
-const packages_query = require('../Database/packages_query');
+const packages_query = require('../../Database/packages_query');
 
 const router = express.Router();
 

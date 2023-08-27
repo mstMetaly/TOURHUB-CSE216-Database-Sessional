@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  transition: all 0.2s linear;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 6rem;
+  scroll-behavior: smooth;
+}
+section {
+  padding: 5rem 9%;
+}
+.heading {
+  text-align: center;
+  padding: 2.5rem 0;
+}
+.heading span {
+  font-size: 3.5rem;
+  background: rgba(255, 165, 0, 0.2);
+  color: var(--orange);
+  border-radius: 0.5rem;
+  padding: 0.2rem 1rem;
+}
+.heading span.space {
+  background: none;
+}
+.book .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.book .row .image {
+  flex: 1 1 40rem;
+}
+.book .row .image img {
+  width: 100%;
+}
+.book .row form {
+  flex: 1 1 40rem;
+  padding: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+.book .row form .inputBox {
+  padding: 0.5rem 0;
+}
+.book .row form .inputBox input {
+  width: 100%;
+  padding: 1rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  font-size: 1.7rem;
+  color: #333;
+  text-transform: none;
+}
+.book .row form .inputBox h3 {
+  font-size: 2rem;
+  padding: 1rem 0;
+  color: #666;
+}
+.book .row form .inputBox .male {
+  width: 100%;
+  font-size: 1.7rem;
+  color: #333;
+  text-transform: none;
+}
+.row .button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.row .button-container .btn {
+  margin: 0 5px;
+  margin-top: 7px;
+  margin-left: 35px;
+  margin-right: 50px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(118, 113, 113);
+  color: white;
+  padding: 9px 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  font-size: medium;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  word-spacing: 0.5rem;
+  text-align: center;
+}
+.row .button-container .btn .row .button-container .btn:hover {
+  background-color: rgb(182, 176, 176);
+  color: black;
+}

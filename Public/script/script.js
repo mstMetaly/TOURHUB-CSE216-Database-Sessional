@@ -81,7 +81,7 @@ async function fetchTours()
       <div class="price $">"${tour.Price}"<span>$120.00</span></div>
       
       <a href="/packageDetails" class="btn">Details</a>
-      <a href="/booking" class="btn">Book Now</a>
+      <a href="/booking/${tour.TOUR_ID}" class="btn">Book Now</a>
     </div>
   `;
    tourList.appendChild(tourDiv);
@@ -89,6 +89,48 @@ async function fetchTours()
   });
 
 }
+
+//for threeDot to view profile
+const menuBtn = document.getElementById("menu-btn");
+const menuDropdown = document.getElementById("menu-dropdown");
+
+menuBtn.addEventListener("click", () => {
+  menuDropdown.classList.toggle("active");
+});
+
+
+//for review
+
+/*var swiper = new Swiper(".review-slider", {
+  spaceBetween: 20,
+  loop: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    640: {
+      slidesPerview: 1,
+    },
+    768: {
+      slidesPerview: 2,
+    },
+    1024: {
+      slidesPerview: 3,
+    },
+  },
+});*/
+document.addEventListener("DOMContentLoaded", function () {
+  const reviewSwiper = new Swiper(".review-slider", {
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  // Additional initialization and event listeners if needed
+});
 
 
 

@@ -1,6 +1,6 @@
 const express = require('express');
 
-const users_query = require('../Database/users_query');
+const users_query = require('../../Database/users_query');
 
 //
 const router = express.Router({mergeParams : true});

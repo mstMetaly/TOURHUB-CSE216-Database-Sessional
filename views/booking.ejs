@@ -1,1 +1,79 @@
-<p>Booking Page</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Tour</title>
+    <link rel="stylesheet" href="/styles/booking-style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <section class="book" id="book">
+      <h1 class="heading">
+        <span>B</span>
+        <span>O</span>
+        <span>O</span>
+        <span>K</span>
+        <span class="space"></span>
+        <span>N</span>
+        <span>O</span>
+        <span>W</span>
+      </h1>
+      <div class="row">
+        <div class="image">
+          <img src="sundarban.jpeg" alt="" />
+        </div>
+        <form action="/confirmBooking/<%= tourId %>" method="post">
+          <div class="inputBox">
+            <h3>Full name</h3>
+            <input type="text" id="full_name" name="full_name" placeholder="Enter Full Name" />
+          </div>
+          <div class="inputBox">
+            <h3>Contact Number</h3>
+            <input type="number" id="phone_no"  name="phone_no" placeholder="Enter Contact No" />
+          </div>
+          <div class="inputBox">
+            <div class="male">
+              <h3>How Many(Male)</h3>
+              <input
+                type="number"
+                id="male_count"
+                name="male_count"
+                placeholder="Enter number of male guests"
+              />
+            </div>
+            <div class="female">
+              <h3>How Many(Female)</h3>
+              <input
+                type="number"
+                id="female_count"
+                name="female_count"
+                placeholder="Enter number of female guests"
+              />
+            </div>
+            <div class="child">
+                <h3>How Many(Children)</h3>
+                <input
+                  type="number"
+                  id="child_count"
+                  name="child_count"
+                  placeholder="Enter number of Children guests"
+                />
+              </div>
+          </div>
+          <div class="button-container">
+            <input type="submit" class="btn" value="Payment" />
+          </div>
+          <div class="button-container">
+            <a href="/selectHotel" class="btn">Select Hotel</a>
+            <input type="submit" class="btn" value="Confirm" />
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

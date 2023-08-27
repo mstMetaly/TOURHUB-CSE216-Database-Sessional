@@ -12,14 +12,14 @@ const adminAuth = require('./middlewares/authentication').adminAuth;
 
 
 //module export
-const signupRoute=require('./Routes/signup');
-const loginRoute=require('./Routes/login');
-const homeRoute=require('./Routes/home');
-const logoutRoute=require('./Routes/logout');
-const packagesRoute = require('./Routes/packages');
-const packageDetailsRoute = require('./Routes/packageDetails');
-const locationRoute = require('./Routes/location');
-const bookingRoute = require('./Routes/booking');
+const signupRoute=require('./Routes/Auth/signup');
+const loginRoute=require('./Routes/Auth/login');
+const homeRoute=require('./Routes/User/home');
+const logoutRoute=require('./Routes/Auth/logout');
+const packagesRoute = require('./Routes/Package/packages');
+const packageDetailsRoute = require('./Routes/Package/packageDetails');
+const locationRoute = require('./Routes/Package/location');
+const bookingRoute = require('./Routes/Booking/booking');
 const adminHomeRouter = require('./Routes/Admin/adminHome');
 
 

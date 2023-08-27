@@ -25,6 +25,7 @@ async function auth(req,res,next)
                 console.log("decoded obj:",decoded);
 
                 const decodedGmail = decoded.mail;
+                
 
                 let result =null;
                 result= await users_query.getUserByEmail(decodedGmail);
@@ -37,12 +38,10 @@ async function auth(req,res,next)
                else{
                 console.log("result null noi");
 
-                    //let time = new  Date();
-
                     req.user = {
-                        user_id  : decoded.user_id,
+                        user_id  : result.USER_ID,
                         gmail : decoded.mail,
-                        username : decoded.username
+                        username : result.USERNAME
                     }
                    
                     console.log("req user:",req.user);
@@ -87,9 +86,8 @@ async function adminAuth(req ,res ,next)
                 }
                 else{
                     req.admin = {
-                        user_id  : decoded.user_id,
-                        gmail : decoded.mail,
-                        username : decoded.username
+                        user_id  : result.ADMIN_ID,
+                        gmail : decoded.mail
                     }
                 }
                 next();

@@ -1,7 +1,7 @@
 const express=require("express");
-const users_query=require('../Database/users_query');
+const users_query=require('../../Database/users_query');
 
-const authUtils= require('../middlewares/auth-utils');
+const authUtils= require('../../middlewares/auth-utils');
 
 const router=express.Router();
 
