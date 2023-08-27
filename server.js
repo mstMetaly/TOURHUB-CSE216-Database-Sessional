@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 
 //middlewares
 const auth= require('./middlewares/authentication').auth;
+const adminAuth = require('./middlewares/authentication').adminAuth;
 
 
 //module export
@@ -16,6 +17,10 @@ const loginRoute=require('./Routes/login');
 const homeRoute=require('./Routes/home');
 const logoutRoute=require('./Routes/logout');
 const packagesRoute = require('./Routes/packages');
+const packageDetailsRoute = require('./Routes/packageDetails');
+const locationRoute = require('./Routes/location');
+const bookingRoute = require('./Routes/booking');
+const adminHomeRouter = require('./Routes/Admin/adminHome');
 
 
 
@@ -38,11 +43,17 @@ app.use(express.urlencoded({extended: false}));
 
 //Routes
 app.use(auth);
+app.use(adminAuth);
+
 app.use('/',signupRoute);
 app.use('/',loginRoute);
 app.use('/',homeRoute);
 app.use('/',logoutRoute);
 app.use('/',packagesRoute);
+app.use('/',packageDetailsRoute);
+app.use('/',locationRoute);
+app.use('/',bookingRoute);
+app.use('/',adminHomeRouter);
 
 
 app.get("/",(req,res)=>{

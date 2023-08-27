@@ -71,6 +71,31 @@ async function getUserByEmail(gmail) {
     }
 }
 
-module.exports={insertUser,getUserByUsername,getUserByEmail};
+async function getAdminByEmail(gmail)
+{
+    const connection = await connectToDatabase();
+
+    try{
+        const selectSql = `SELECT * FROM ADMIN WHERE GMAIL =:gmail`;
+        const selectBindings =[gmail];
+
+        const result = await connection.execute(selectSql , selectBindings);
+
+        if(result.rows.length === 0)
+        {
+            console.log("Found no admin");
+            return null;
+        }
+        else{
+            return result.rows[0];
+        }
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+}
+
+module.exports={insertUser,getUserByUsername,getUserByEmail,getAdminByEmail};
 
 

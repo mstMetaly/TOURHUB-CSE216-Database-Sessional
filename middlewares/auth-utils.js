@@ -21,6 +21,24 @@ async function loginUser(res , gmail)
     res.cookie('sessionToken', token, options);
 }
 
+async function loginAdmin(res ,gmail)
+{
+    const payload = {
+        mail : gmail
+    }
+
+    let  token = jwt.sign(payload , process.env.APP_SECRET );
+
+    let options = {
+        maxAge: 90000000, 
+        httpOnly: true
+    }
+
+    res.cookie('adminSessionToken', token, options);
+
+}
+
 module.exports = {
-    loginUser
+    loginUser,
+    loginAdmin
 }

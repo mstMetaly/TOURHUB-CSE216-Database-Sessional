@@ -1,0 +1,57 @@
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+  }
+  
+  .admin-nav {
+    background-color: #444;
+    color: white;
+  }
+  
+  .admin-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 1em 0;
+  }
+  
+  .admin-nav li {
+    margin: 0 1em;
+  }
+  
+  .admin-nav a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s, background-color 0.3s; /* Add transition for background color */
+    padding: 0.5em 1em; /* Add padding for clickable area */
+  }
+  
+  .admin-nav a:hover,
+  .admin-nav a.active { /* Add styles for both hover and active states */
+    color: #f5f5f5;
+    background-color: #555;
+  }
+  
+  .main-content {
+    padding: 2em;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #333;
+    color: white;
+  }
+  

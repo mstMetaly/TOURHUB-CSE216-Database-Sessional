@@ -33,19 +33,11 @@ async function auth(req,res,next)
                 {
                     console.log("result null e authentication  e");
 
-                    /*req.user = {
-                        user_id  : decoded.user_id,
-                        gmail : decoded.gmail,
-                        username : decoded.username
-                    }
-
-                    console.log("req user:",req.user);*/
-
                 }
                else{
                 console.log("result null noi");
 
-                    let time = new  Date();
+                    //let time = new  Date();
 
                     req.user = {
                         user_id  : decoded.user_id,
@@ -68,4 +60,47 @@ async function auth(req,res,next)
 
 }
 
-module.exports = {auth};
+async function adminAuth(req ,res ,next)
+{
+    req.admin = null;
+    if(req.cookies.adminSessionToken)
+    {
+        let token = req.cookies.adminSessionToken;
+
+        //verified toekn was made by server 
+        jwt.verify(token ,process.env.APP_SECRET,async (err ,decoded)=>{
+            if(err)
+            {
+                console.log("Error at verifying admin");
+                next();
+            }
+            else{
+                const decodedGmail = decoded.mail;
+
+                let result =null;
+                result= await users_query.getAdminByEmail(decodedGmail);
+
+                if(result == null)
+                {
+                    console.log("result null admin authentication  e");
+
+                }
+                else{
+                    req.admin = {
+                        user_id  : decoded.user_id,
+                        gmail : decoded.mail,
+                        username : decoded.username
+                    }
+                }
+                next();
+
+            }
+            
+        });
+    }
+    else{
+        next();
+    }
+}
+
+module.exports = {auth,adminAuth};

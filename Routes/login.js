@@ -74,6 +74,46 @@ router.post('/login', async (req, res) => {
 
 
     }
+    else if(loginAs == 2)
+    {
+        let result = [], errors = [];
+
+        result = await users_query.getAdminByEmail(gmail);
+
+        if (result == undefined) {
+            errors.push('No Admin exist with this gmail');
+        }
+        else{
+            if (password == result.PASSWORD) {
+                console.log("Password Matched for admin!");
+
+                await authUtils.loginAdmin(res, gmail);
+
+                res.redirect('/adminHome');
+            }
+            else {
+                errors.push('Wrong Password!');
+            }
+        }
+
+        //if error occured
+        if (errors.length != 0) {
+            console.log(errors);
+
+            res.render('login',
+                {
+                    user: null,
+                    errors: errors,
+                    form:
+                    {
+                        gmail: "",
+                        password: "",
+                        loginAs: ""
+                    }
+                });
+        }
+
+    }
 
 });
 

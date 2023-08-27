@@ -16,4 +16,13 @@ router.get('/logout',async(req,res)=>{
     res.redirect('/login');
 });
 
+router.get('/adminLogout', async(req,res)=>{
+    if(req.admin != null)
+    {
+
+    }
+    res.clearCookie("adminSessionToken");
+    res.redirect('/login');
+});
+
 module.exports = router;

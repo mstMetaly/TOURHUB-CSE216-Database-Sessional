@@ -53,7 +53,6 @@ videoBtn.forEach((btn) => {
 });
 
 
-
 async function fetchTours()
 {
   const response = await fetch('/packages');
@@ -80,16 +79,17 @@ async function fetchTours()
         </div>
 
       <div class="price $">"${tour.Price}"<span>$120.00</span></div>
-      <a href="#" class="btn">Details</a>
-      <a href="#" class="btn">Book Now</a>
+      
+      <a href="/packageDetails" class="btn">Details</a>
+      <a href="/booking" class="btn">Book Now</a>
     </div>
   `;
-
-  tourList.appendChild(tourDiv);
+   tourList.appendChild(tourDiv);
 
   });
 
 }
+
 
 
 
