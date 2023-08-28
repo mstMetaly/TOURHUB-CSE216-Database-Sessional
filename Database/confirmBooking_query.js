@@ -33,4 +33,26 @@ async function insertIntoTourHistory(insertSql,insertBindings)
     }
 }
 
-module.exports = {insertBookingInfo,insertIntoTourHistory};
+async function getBookingInfo(bookingId)
+{
+    const connection = await connectToDatabase();
+    
+    try{
+        const connection = await connectToDatabase();
+
+        const insertSql = `SELECT * FROM BOOKING_INFO WHERE BOOKING_ID = :bookingId`;
+        const insertBindings = {
+            bookingId : bookingId
+        };
+
+        const result = await connection.execute(insertSql,insertBindings);
+        return result.rows[0];
+    }
+    catch(err)
+    {
+        console.log(err);
+    
+    }
+}
+
+module.exports = {insertBookingInfo,insertIntoTourHistory,getBookingInfo};

@@ -66,8 +66,11 @@ async function fetchTours()
     const tourDiv = document.createElement('div');
     tourDiv.classList.add('box');
 
+    //adding image src
+    const imageSrc = `/${tour.TOUR_ID}.jpg`;
+
     tourDiv.innerHTML = 
-    `<img src="/sundarban.jpeg" alt="" />
+    `<img src="/image/${imageSrc}" alt="" />
     <div class="content">
       <h3><i class="fas fa-map-markar-alt"></i>"${tour.TOUR_NAME}"</h3>
         <div class="stars">

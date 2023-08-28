@@ -1,2 +1,25 @@
-<h2>Booking Confirmed</h2>
-<p>Your booking with ID: <%= bookingId %> has been successfully completed.</p>
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation</title>
+    <link rel="stylesheet" href="/styles/confirmation-style.css">
+</head>
+<body>
+    <header>
+        <h1>Booking Confirmation</h1>
+    </header>
+
+    <div class="confirmation-content" id="confirmation-content">
+        <!-- Confirmation data will be populated here -->
+    </div>
+
+    <script>
+        // Set the bookingId as a global variable
+        var bookingId = '<%= bookingId %>';
+    </script>
+    <script src="/script/confirmation-script.js"></script>
+</body>
+</html>
