@@ -26,6 +26,7 @@ async function fetchLocations(tourId)
         </div>
 
       <p>"${location.LOCATION_DESCRIPTION}" </p>
+      <a href="/SeeMoreDetails/${location.LOCATION_ID}" class="see-more-link">See More</a>
       
     </div>
   `;

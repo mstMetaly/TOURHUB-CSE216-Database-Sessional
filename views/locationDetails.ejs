@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Details</title>
+    <link rel="stylesheet" href="/styles/locationDetails-style.css">
+</head>
+<body>
+    <header>
+        <h1>Location Details</h1>
+    </header>
+
+    <main>
+        <div class="description-container">
+            <h2>Description:</h2>
+            <div class="Details" id="location-description"></div>
+        </div>
+
+        <div class="comment-container">
+            <h2>Comments:</h2>
+            <div class="Comments" id="comment-list"></div>
+        </div>
+
+    
+        <div class="commentForm-container">
+            <form id="comment-form">
+                <input type="text" name="comment" placeholder="Add a comment">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Define the locationId as a JavaScript variable
+        var locationId = "<%= locationId %>";
+    </script>
+    <script src="/script/locationDetails-script.js"></script>
+    
+</body>
+</html>

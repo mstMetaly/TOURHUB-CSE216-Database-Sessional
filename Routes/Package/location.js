@@ -26,4 +26,5 @@ router.get('/location/:tourId' , async(req , res)=>{
 
 });
 
+
 module.exports = router;

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Package Details</title>
-  <link rel="stylesheet" href=""> <!-- Link to your CSS stylesheet -->
+  <link rel="stylesheet" href="/styles/details-style.css">
 </head>
 <body>
   <header>
@@ -14,6 +14,52 @@
   <main>
     <div class="box-container" id="package-details"></div>
   </main>
+-->
+  <!-- Passing the tourId as a JavaScript variable in the scriptForDetails.js file -->
+  <!--
+  <script>
+    var tourId = "<%= tourId %>";
+  </script>
+
+  <script src="/script/scriptForDetails.js"></script>
+</body>
+</html>
+-->
+
+<!--new part --------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Package Details</title>
+  <link rel="stylesheet" href="/styles/details-style.css">
+</head>
+<body>
+  <header>
+    <h1>Package Details</h1>
+    <nav>
+      <ul>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#food">Food</a></li>
+        <li><a href="#others">Others</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="box-container" id="package-details">
+      <!-- Package details content here -->
+    </div>
+    
+    <div class="box-container" id="food">
+      <!-- Food section content here -->
+    </div>
+    
+    <div class="box-container" id="others">
+      <!-- Others section content here -->
+    </div>
+  </main>
 
   <!-- Passing the tourId as a JavaScript variable in the scriptForDetails.js file -->
   <script>
@@ -21,5 +67,25 @@
   </script>
 
   <script src="/script/scriptForDetails.js"></script>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(e.target.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Scroll to the corresponding section on page load
+    const hash = window.location.hash;
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
 </body>
 </html>

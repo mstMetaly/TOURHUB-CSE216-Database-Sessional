@@ -16,10 +16,9 @@ router.get('/packages' , async (req,res)=>{
 
         tours = await packages_query.getAllPackages();
 
-         res.json(tours);
+        return res.json(tours);
     }
 });
-
 
 
 module.exports = router;
