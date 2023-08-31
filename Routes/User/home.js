@@ -20,4 +20,14 @@ router.get('/home',(req,res)=>{
     
 });
 
+router.get('/myProfile',(req,res)=>{
+    if(req.user == null)
+    {
+        res.redirect('/login');
+    }
+    else{
+        res.render('myProfile');
+    }
+});
+
 module.exports= router;
