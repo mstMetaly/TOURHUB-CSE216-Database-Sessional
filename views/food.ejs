@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Package Details</title>
-  <link rel="stylesheet" href="/styles/details-style.css">
+  <link rel="stylesheet" href="/styles/food-style.css">
 </head>
 <body>
   <header>
-    <h1>HOTEL-MOTEL</h1>
+    <h1>Package Details</h1>
     <nav>
       <ul>
-        <li><a href="hotels" id="hotelLink">Hotels</a></li>
+        <li><a href="locations" id="locationLink">Locations</a></li>
         <li><a href="food" id="foodLink">Food</a></li>
         <li><a href="others" id="othersLink">Others</a></li>
       </ul>
@@ -21,16 +21,16 @@
   <main>
     <section class="all-location" id="all-location">
       <h1 class="heading">
-        <span>H</span>
+        <span>F</span>
         <span>O</span>
-        <span>T</span>
-        <span>E</span>
-        <span>L</span>
+        <span>O</span>
+        <span>D</span>
       </h1>
-    <div class="box-container" id="hotel-list">
+    <div class="box-container" id="food-list">
       <!-- Package details content here -->
     </div>
     </section>
+
   </main>
 
   <!-- Passing the tourId as a JavaScript variable in the scriptForDetails.js file -->
@@ -38,22 +38,23 @@
     var tourId = "<%= tourId %>";
   </script>
 
-  <script src="/script/selectHotel-script.js"></script>
+  <script src="/script/food-script.js"></script>
+
+  <!--<script src="/script/scriptForDetails.js"></script>-->
 
   <script>
     // Get the Food link element
     const foodLink = document.getElementById("foodLink");
     const othersLink = document.getElementById("othersLink");
-
-    const hotelLink = document.getElementById("hotelLink");
+    const locationLink = document.getElementById("locationLink");
 
     // Append the tourId as a query parameter when clicking the Food link
-    hotelLink.addEventListener("click", function(event) {
+    foodLink.addEventListener("click", function(event) {
       event.preventDefault();
-      window.location.href = `/hotel/${tourId}`;
+      window.location.href = `/food/${tourId}`;
     });
 
-    /*othersLink.addEventListener("click", function(event) {
+    othersLink.addEventListener("click", function(event) {
       event.preventDefault();
       window.location.href = `/others/${tourId}`;
     });
@@ -61,7 +62,7 @@
     locationLink.addEventListener("click", function(event) {
       event.preventDefault();
       window.location.href = `/packageDetails/${tourId}`;
-    });*/
+    });
 
   </script>
 

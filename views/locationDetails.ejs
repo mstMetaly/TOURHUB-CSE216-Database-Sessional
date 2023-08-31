@@ -12,23 +12,50 @@
     </header>
 
     <main>
+    <div class="image-container" id="image-container">
+        <div class="image-slider">
+            <div class="image-slide">
+                <img src="/image/1.jpg" alt="">
+            </div>
+            <div class="image-slide">
+                <img src="/image/2.jpg" alt="">
+            </div>
+            <div class="image-slide">
+                <img src="/image/3.jpg" alt="">
+            </div>
+            <div class="image-slide">
+                <img src="/image/4.jpg" alt="">
+            </div>
+        </div>
+        <button class="prev-button">Previous</button>
+        <button class="next-button">Next</button>
+    </div>
+    
+
         <div class="description-container">
             <h2>Description:</h2>
             <div class="Details" id="location-description"></div>
         </div>
 
         <div class="comment-container">
-            <h2>Comments:</h2>
-            <div class="Comments" id="comment-list"></div>
-        </div>
-
-    
-        <div class="commentForm-container">
+            <h1>Comments</h1>
+            <div class="comments" id="comments">
+                <!-- Comment items will be added here dynamically -->
+            </div>
+            <div class="view-more" id="view-more">
+                <button id="view-more-button">View More Comments</button>
+            </div>
             <form id="comment-form">
-                <input type="text" name="comment" placeholder="Add a comment">
+                <div class="comment-input-container">
+                    <img src="myself.jpg" class="profile-picture" />
+                    <textarea id="comment-input" placeholder="Write a comment"></textarea>
+                    <input type="file" id="image-upload" accept="image/*">
+                </div>
                 <button type="submit">Submit</button>
             </form>
         </div>
+        
+
     </main>
 
     <script>

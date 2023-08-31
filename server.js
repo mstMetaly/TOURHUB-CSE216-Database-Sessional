@@ -24,6 +24,9 @@ const adminHomeRouter = require('./Routes/Admin/adminHome');
 const fetchAdminHomeRouter = require('./Routes/Admin/fetchAdminHome');
 const locationDetailsRoute = require('./Routes/Package/locationDetails');
 const reviewRouter = require('./Routes/Review/review');
+const foodRouter = require('./Routes/Package/food');
+const othersRouter = require('./Routes/Package/others');
+const hotelRouter = require('./Routes/Booking/hotel');
 
 
 
@@ -60,6 +63,9 @@ app.use('/',adminHomeRouter);
 app.use('/',fetchAdminHomeRouter);
 app.use('/',locationDetailsRoute);
 app.use('/',reviewRouter);
+app.use('/',foodRouter);
+app.use('/',othersRouter);
+app.use('/',hotelRouter);
 
 
 app.get("/",(req,res)=>{

@@ -18,16 +18,6 @@ router.get('/booking/:tourId', async (req, res) => {
     }
 });
 
-//routes for selectHotel-render selectHotel page
-router.get('/selectHotel', async (req, res) => {
-    if (req.user == null) {
-        res.redirect('/login');
-    }
-    else {
-        res.render('selectHotel');
-    }
-});
-
 //routes for booking confirmation
 router.post('/confirmBooking/:tourId', async (req, res) => {
     if (req.user == null) {

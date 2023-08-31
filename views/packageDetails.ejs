@@ -1,32 +1,3 @@
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Package Details</title>
-  <link rel="stylesheet" href="/styles/details-style.css">
-</head>
-<body>
-  <header>
-    <h1>Package Details</h1>
-  </header>
-  
-  <main>
-    <div class="box-container" id="package-details"></div>
-  </main>
--->
-  <!-- Passing the tourId as a JavaScript variable in the scriptForDetails.js file -->
-  <!--
-  <script>
-    var tourId = "<%= tourId %>";
-  </script>
-
-  <script src="/script/scriptForDetails.js"></script>
-</body>
-</html>
--->
-
-<!--new part --------->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,9 +11,9 @@
     <h1>Package Details</h1>
     <nav>
       <ul>
-        <li><a href="#locations">Locations</a></li>
-        <li><a href="#food">Food</a></li>
-        <li><a href="#others">Others</a></li>
+        <li><a href="locations" id="locationLink">Locations</a></li>
+        <li><a href="food" id="foodLink">Food</a></li>
+        <li><a href="others" id="othersLink">Others</a></li>
       </ul>
     </nav>
   </header>
@@ -63,35 +34,6 @@
       <!-- Package details content here -->
     </div>
     </section>
-
-
-    <section class="food" id="food">
-      <h1 class="heading">
-        <span>F</span>
-        <span>O</span>
-        <span>O</span>
-        <span>D</span>
-      </h1>
-    <div class="box-container" id="food">
-      <!-- Food section content here -->
-    </div>
-    </section>
-    
-    <section class="others" id="others">
-      <h1 class="heading">
-        <span>N</span>
-        <span>E</span>
-        <span>E</span>
-        <span>D</span>
-        <span>T</span>
-        <span>O</span>
-      </h1>
-
-    <div class="box-container" id="others">
-      <!-- Others section content here -->
-    </div>
-    </section>
-    
   </main>
 
   <!-- Passing the tourId as a JavaScript variable in the scriptForDetails.js file -->
@@ -102,23 +44,28 @@
   <script src="/script/scriptForDetails.js"></script>
 
   <script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(e.target.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
-      });
+    // Get the Food link element
+    const foodLink = document.getElementById("foodLink");
+    const othersLink = document.getElementById("othersLink");
+    const locationLink = document.getElementById("locationLink");
+
+    // Append the tourId as a query parameter when clicking the Food link
+    foodLink.addEventListener("click", function(event) {
+      event.preventDefault();
+      window.location.href = `/food/${tourId}`;
     });
 
-    // Scroll to the corresponding section on page load
-    const hash = window.location.hash;
-    if (hash) {
-      const target = document.querySelector(hash);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    othersLink.addEventListener("click", function(event) {
+      event.preventDefault();
+      window.location.href = `/others/${tourId}`;
+    });
+
+    locationLink.addEventListener("click", function(event) {
+      event.preventDefault();
+      window.location.href = `/packageDetails/${tourId}`;
+    });
+
   </script>
+
 </body>
 </html>

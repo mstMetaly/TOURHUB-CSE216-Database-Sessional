@@ -35,7 +35,69 @@ async function getAllLocationByTourId(tourId)
         console.log(err);
     }
 }
+//getAllFood by tourId
+async function getAllFood(tourId)
+{
+    const connection = await connectToDatabase();
 
+    try{
+        const selectSql=`SELECT * FROM PACKAGE_FOOD WHERE TOUR_ID = :tourId`;
+        const selectBindings = 
+        {
+            tourId : tourId
+        };
+
+        const result = await connection.execute(selectSql , selectBindings);
+
+        if(result.rows.length === 0)
+        {
+            console.log("No food found for tour: ",tourId);
+            return null;
+        }
+        else{
+            console.log("food for tour id:",tourId, " locaton:",result.rows);
+            return result.rows;
+        }
+
+    }catch(err)
+    {
+        console.log(err);
+    }
+}
+//others---
+async function getAllOthers(tourId)
+{
+    const connection = await connectToDatabase();
+
+    try{
+        const selectSql=`SELECT * FROM DESCRIPTION WHERE TOUR_ID = :tourId`;
+        const selectBindings = 
+        {
+            tourId : tourId
+        };
+
+        const result = await connection.execute(selectSql , selectBindings);
+
+        if(result.rows.length === 0)
+        {
+            console.log("No others found for tour: ",tourId);
+            return null;
+        }
+        else{
+            console.log("others in query for tour id:",tourId, " others:",result.rows);
+            return result.rows;
+        }
+
+    }catch(err)
+    {
+        console.log(err);
+    }
+
+}
+
+
+
+//query for seeMore page from package details---------
 //funtion for fetching location details 
 async function getDetailsOfLocation(locationId)
 {
@@ -100,4 +162,4 @@ async function getCommentsOfLocation(locationId)
 
 
 
-module.exports = {getAllLocationByTourId,getDetailsOfLocation,getCommentsOfLocation};
+module.exports = {getAllLocationByTourId,getDetailsOfLocation,getCommentsOfLocation,getAllFood,getAllOthers};

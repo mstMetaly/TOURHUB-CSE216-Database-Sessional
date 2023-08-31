@@ -1,0 +1,72 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  main {
+    padding: 2rem;
+  }
+  
+  /* styles/details-style.css */
+/* styles/details-style.css */
+
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .box {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    width: 100%; /* Set the width to 100% for one box in one row */
+    max-width: 800px; /* Adjust the maximum width of the box */
+    margin: 1rem; /* Add margin to create spacing between boxes */
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .box:hover {
+    transform: translateY(-5px);
+  }
+  
+  .box img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Center the image horizontally within the box */
+    border-radius: 8px;
+    margin-bottom: 0.5rem; /* Adjust the margin for spacing */
+  }
+  
+
+  .box h3 {
+    margin: 0;
+  }
+  
+  .box p {
+    color: #666;
+  }
+  
+  #food, #others {
+    display: none;}
+  
+  @media (max-width: 768px) {
+    .box-container {
+      gap: 1rem;
+    }
+  }
+  
