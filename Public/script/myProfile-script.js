@@ -1,4 +1,5 @@
-   document.addEventListener("DOMContentLoaded", function () {
+
+   /*document.addEventListener("DOMContentLoaded", function () {
 
     
     const expandFormButton = document.querySelector(".expand-form-button");
@@ -28,4 +29,27 @@
     
     // ... (other script code) ...
   });
+  */
+
+ async function fetchMyProfile()
+ {
+    const response = await fetch('/fetchMyProfile');
+    const result = await response.json();
+
+    const imageDiv = document.getElementById("profile-picture");
+    imageDiv.innerHTML = `<img src="${result.IMAGE_URL}" alt="" />`;
+    const profileInfoDiv = document.getElementById("profile-info");
+
+    profileInfoDiv.innerHTML=
+    `<p>user_name : ${result.USER_NAME} </p>
+    <p>gmail: ${result.GMAIL}</p>
+    <p>NID : ${result.NID}</p>
+    <p>Gender : ${result.GENDER}</p>
+    <p>Nationality: ${result.NATIONALITY}</p>
+    <p>Address: ${result.ADDRESS}</p>
+    `;
+    
+ };
+
+ fetchMyProfile();
   

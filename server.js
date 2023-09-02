@@ -27,6 +27,10 @@ const reviewRouter = require('./Routes/Review/review');
 const foodRouter = require('./Routes/Package/food');
 const othersRouter = require('./Routes/Package/others');
 const hotelRouter = require('./Routes/Booking/hotel');
+const fetchMyProfileRouter = require('./Routes/UserProfile/fetchMyProfile');
+const changeProfilePicRouter = require('./Routes/UserProfile/changeProfilePicture');
+const faqRouter = require('./Routes/FAQ/faq');
+const galleryRouter = require('./Routes/Gallery/gallery');
 
 
 
@@ -66,6 +70,10 @@ app.use('/',reviewRouter);
 app.use('/',foodRouter);
 app.use('/',othersRouter);
 app.use('/',hotelRouter);
+app.use('/',fetchMyProfileRouter);
+app.use('/',changeProfilePicRouter);
+app.use('/',faqRouter);
+app.use('/',galleryRouter);
 
 
 app.get("/",(req,res)=>{

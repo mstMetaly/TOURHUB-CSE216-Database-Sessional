@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/styles/faq/faq-style.css" />
+  </head>
+  <body>
+    <div class="contact-us">
+      <form action="/askQuestion" method="post">
+        <label for="customerName">NAME <em>&#x2a;</em></label
+        ><input
+          id="customerName"
+          name="customerName"
+          required=""
+          type="text"
+        /><label for="customerEmail">EMAIL <em>&#x2a;</em></label
+        ><input
+          id="customerEmail"
+          name="customerEmail"
+          required=""
+          type="email"
+        /><label for="customerPhone">PHONE</label
+        ><input
+          id="customerPhone"
+          name="customerPhone"
+          type="tel"
+        /><label for="customerNote">YOUR MESSAGE <em>&#x2a;</em></label
+        ><textarea
+          id="customerNote"
+          name="customerNote"
+          required=""
+          rows="4"
+        ></textarea>
+        <h3>
+          After you submit the form, one of our travel experts will get back to
+          you
+        </h3>
+        <button type="submit" id="customerOrder">SUBMIT</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -139,5 +139,36 @@
     display: none;
   }
   
-  /* ... (other CSS rules) ... */
+  /* ... (other CSS rules) .css for change profile picture.. */
+  /* Style for the container of the profile picture */
+.update-pic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Style for the circular profile picture */
+.update-pic img {
+  width: 150px; /* Adjust the size as needed */
+  height: 150px; /* Adjust the size as needed */
+  border-radius: 50%;
+  border: 2px solid #1877f2; /* Facebook blue color */
+}
+
+/* Style for the "Change Profile Picture" button */
+.update-pic button {
+  margin-top: 10px;
+  background-color: #1877f2; /* Facebook blue color */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.update-pic button:hover {
+  background-color: #14568f; /* Darker shade of Facebook blue on hover */
+}
+
   

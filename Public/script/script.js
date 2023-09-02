@@ -5,7 +5,7 @@ const videoBtn = document.querySelectorAll(".vid-btn");
 const menu = document.querySelector("#menu-bar");
 const navbar = document.querySelector(".navbar");
 var tripBox = document.querySelector(".trip_bx");
-var scrollThreshold = 90; // Adjust this value as needed
+var scrollThreshold = 70; // Adjust this value as needed
 
 //packages--
 
@@ -46,6 +46,7 @@ window.addEventListener("scroll", function () {
 // Set a flag to keep track of whether reviews are fetched
 let reviewsFetched = false;
 let packagesFetched = false;
+let galleryFetched = false;
 
 // Define a named function for the scroll event handler
 function scrollEventHandler() {
@@ -60,6 +61,7 @@ function scrollEventHandler() {
   // Check if the "Packages" section is in the viewport
   const packagesSection = document.getElementById("packages");
   const reviewSection = document.getElementById("review");
+  const gallerySection = document.getElementById("gallery");
 
   if (isElementInViewport(packagesSection) && !packagesFetched) {
     packagesFetched = false;
@@ -76,6 +78,15 @@ function scrollEventHandler() {
     reviewsFetched = true; // Set the flag to true after fetching reviews
     //window.removeEventListener("scroll", scrollEventHandler);
   }
+
+  if (isElementInViewport(gallerySection) && !galleryFetched) {
+    // Reset the flag to false when scrolling to a different section
+    galleryFetched = false;
+    fetchAllGallery();
+    galleryFetched = true; // Set the flag to true after fetching reviews
+    //window.removeEventListener("scroll", scrollEventHandler);
+  }
+
 }
 
 
@@ -146,10 +157,43 @@ async function fetchTours()
 
 }
 
+
+//--------for gallery---------//
+async function fetchAllGallery()
+{
+  const response = await fetch('/fetchGallery');
+  const gallery = await response.json();
+
+  gallery.forEach(element=>{
+    const galleryList = document.getElementById("gallery-list");
+    const galleryDiv = document.createElement('div');
+    galleryDiv.classList.add('box');
+
+     //adding image src
+     const imageSrc = `/${element.IMAGE_URL}`;
+     galleryDiv.innerHTML = `
+     <div class="img">
+     <img src="${imageSrc} alt="image" />
+     <div class="content">
+     <h3>Amazing places</h3>
+     <p>CapturedBy : ${element.NAME} </p>
+     <a href="#" class="btn">See More</a>
+     </div>
+     `;
+     
+    /*const image = document.createElement('img');
+    image.src = element.IMAGE_URL; // Use the actual property name from your JSON data
+    image.alt = imageData.description; // Use the actual property name from your JSON data
+    // You can add more elements for captions, links, etc., as needed
+    galleryDiv.appendChild(image);*/
+
+    galleryList.appendChild(galleryDiv);
+
+  });
+
+}
+
 //-------for review-------//
-
-
-//rest of the  functionality for sliding reviews
 
 //function for fetching all reviews
 
@@ -283,4 +327,6 @@ Wrapper.addEventListener("mouseleave", autoPlay);
 
 }
 
+
+//fetchAllGallery();
 

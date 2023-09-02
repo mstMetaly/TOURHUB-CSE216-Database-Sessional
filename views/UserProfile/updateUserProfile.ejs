@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile</title>
+  <link rel="stylesheet" href="/styles/myProfile/updateProfilePic-style.css">
+</head>
+<body>
+  <header>
+    <h1>My Profile</h1>
+    <nav>
+      <ul>
+        <li><a href='/myProfile'>Profile Info</a></li>
+        <li><a href='/previous-tour'>Previous Tour History</a></li>
+        <li><a href='/current-tour'>Current Tour</a></li>
+        <li><a href='/update-profile'>Update Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>    
+    
+    <section id="update-profile" class="update-section">
+      
+      <!--profile picture chnage form-->
+      <div class="update-pic">
+        <img src="" alt="Previous Profile Picture">
+        <form action="/changeProfilePic" method="post" id="updateProfilePic" class="hidden-form" enctype="multipart/form-data">
+          <label for="profile-picture-input">Change Profile Picture</label>
+          <input type="file" id="profile-picture-input" name="profile-picture" accept="image/*">
+          <button type="submit" class="button">Upload</button>
+        </form>
+      </div>
+
+      <div class="profile-info">
+        <!--<button class="expand-form-button">Update Info</button>-->
+        <form action="/updateProfile" method="post" id="update-profile-form" class="hidden-form">
+          <!-- Update profile form with fields mentioned earlier -->
+          <label for="name">Name</label>
+          <input type="text" id="user_name" name="user_name" placeholder="User Name">
+          
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your Email">
+          
+          <label for="nid">NID</label>
+          <input type="text" id="nid" name="nid" placeholder="Your NID">
+          
+          <label for="address">Address</label>
+          <textarea id="address" name="address" placeholder="Your Address"></textarea>
+          
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          
+          <label for="nationality">Nationality</label>
+          <input type="text" id="nationality" name="nationality" placeholder="Your Nationality">
+
+          <button type="submit" class="button">Update Profile</button>
+
+          <!--Delete Profile er kaj korte hobe-->
+          <!--<a href="/deleteProfile" class="delete-button">Delete Profile</a>-->
+        </form>
+
+      </div>
+    </section>
+  </main>
+  
+  <!--<script src="/script/myProfile-script.js"></script>-->
+</body>
+</html>

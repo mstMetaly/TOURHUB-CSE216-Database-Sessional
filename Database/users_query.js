@@ -71,6 +71,30 @@ async function getUserByEmail(gmail) {
     }
 }
 
+//get user profile info using gamil
+async function getUserProfileInfo(gmail) {
+    const connection=await connectToDatabase();
+    try {
+        const selectSql = `SELECT * FROM USER_PROFILE_INFO WHERE GMAIL = :gmail`;
+        const selectBindings = [gmail];
+
+        const result = await connection.execute(selectSql, selectBindings);
+
+        if (result.rows.length === 0) {
+            console.log("Found no user");
+            return null; // User not found
+        }
+        
+        console.log("GetGmailResult:", result.rows);
+
+        return result.rows[0];
+
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+//get admin using gmail
 async function getAdminByEmail(gmail)
 {
     const connection = await connectToDatabase();
@@ -96,6 +120,6 @@ async function getAdminByEmail(gmail)
     }
 }
 
-module.exports={insertUser,getUserByUsername,getUserByEmail,getAdminByEmail};
+module.exports={insertUser,getUserByUsername,getUserByEmail,getAdminByEmail,getUserProfileInfo};
 
 
