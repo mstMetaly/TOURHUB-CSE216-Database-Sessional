@@ -650,6 +650,8 @@ body {
   border-radius: 0.5rem;
   padding: 0.2rem 1rem;
 }
+
+
 .gallery .box-container {
   width: 100%;
   padding-top: 5rem;
@@ -658,6 +660,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
+/*
 .gallery .box-container .box {
   flex: 1 1 calc(33.33% -2rem);
   border-radius: 0.5rem;
@@ -672,7 +675,31 @@ body {
   height: 35rem;
   width: 100%;
   object-fit: cover;
+}*/
+
+/*extra*/
+.gallery .box-container .box {
+  flex: 1 1 calc(33.33% - 2rem);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  border: 1rem solid #fff;
+  max-width: calc(33.33% - 2rem);
+  /* Increase the height to show the full image */
+  height: 35rem; /* Adjust the height as needed */
+  width: 100%; /* Adjust the width as needed */
+  position: relative;
 }
+
+.gallery .box-container .box img {
+  /* Adjust the height to match the box's height */
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+/* extra sesh*/
 .gallery .box-container .box .content .btn {
   background-color: rgb(118, 113, 113);
   color: orange;
@@ -715,4 +742,88 @@ body {
   color: #eee;
   padding: 0.5rem 0;
   padding-bottom: 2rem;
+}
+
+/*add your own blog "*/
+/* Style for the "Add Your Own Blog" search bar */
+/* Style for the "Add Your Own Blog" search bar */
+/* Style for the "Add Your Own Blog" search bar */
+/* Style for the "See More" link */
+/* Style for the "See More" link */
+/* Style for the container of the links */
+/* Style for the container of the links */
+.gallery .add-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Style for the "See More" link */
+.gallery .add-container .btn,
+.gallery .add-container .add-blog-link {
+  display: inline-block;
+  padding: 10px 40px; /* Increase padding for a wider search bar */
+  background-color: none; /* White background color */
+  border: none; /* Add a border */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: #333; /* Text color */
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 5px;
+  width: 400px; /* Set a fixed width for the search bar */
+}
+
+.gallery .add-container .btn:hover,
+.gallery .add-container .add-blog-link:hover {
+  background-color: rgb(247, 213, 151); /* Background color on hover */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+/* Style the link text */
+.gallery .add-container .btn span,
+.gallery .add-container .add-blog-link span {
+  margin-left: 5px;
+}
+
+
+/*give review button*/
+
+.review .add-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.review .add-container .btn,
+.review .add-container .add-blog-link {
+  display: inline-block;
+  padding: 10px 40px; /* Increase padding for a wider search bar */
+  background-color: none; /* White background color */
+  border: none; /* Add a border */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: #333; /* Text color */
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 5px;
+  width: 400px; /* Set a fixed width for the search bar */
+}
+
+.review .add-container .btn:hover,
+.review .add-container .add-blog-link:hover {
+  background-color: rgb(247, 213, 151); /* Background color on hover */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+/* Style the link text */
+.review .add-container .btn span,
+.review .add-container .add-blog-link span {
+  margin-left: 5px;
 }

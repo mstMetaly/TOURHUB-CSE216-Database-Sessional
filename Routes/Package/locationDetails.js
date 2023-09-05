@@ -39,25 +39,5 @@ router.get('/locationDetails/:locationId' , async(req,res)=>{
     }
 });
 
-//route for locationDetails 
-router.get('/comments/:locationId' , async(req,res)=>{
-    if(req.user == null)
-    {
-        res.redirect('/login');
-    }
-    else{
-        const locationId = req.params.locationId;
-        let comments = await packageDetails_query.getCommentsOfLocation(locationId);
-
-        if(comments == undefined)
-        {
-           return null;
-        }
-        else{
-            return res.json(comments.rows);
-        }
-    }
-});
-
 
 module.exports = router;

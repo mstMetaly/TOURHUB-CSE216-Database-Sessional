@@ -1,0 +1,142 @@
+/* See Blog Styles */
+/*
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .blog-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .box {
+    width: calc(33.33% - 20px); /* Adjust the width as needed with spacing */
+    /*
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .box:hover {
+    transform: scale(1.05); 
+  }
+  
+  .img img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .content {
+    padding: 10px;
+  }
+  
+  h3 {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  h2 {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  */
+
+  /* See Blog Styles */
+
+
+  /*new added*/
+  /* See Blog Styles */
+/* See Blog Styles */
+/* See Blog Styles */
+/* See Blog Styles */
+/* See Blog Styles */
+/* Custom Blog Styles */
+/* Custom Blog Styles */
+/* Custom Blog Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .blog-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .box {
+    flex: 0 0 calc(33.33% - 20px); /* Three columns with spacing */
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .box:hover {
+    transform: scale(1.03); /* Slightly scale up on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .img {
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .img img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .content {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  h3 {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+  }
+  
+  h2 {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #777;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.5;
+    margin-top: 20px;
+  }
+  

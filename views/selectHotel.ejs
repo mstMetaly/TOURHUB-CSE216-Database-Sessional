@@ -11,6 +11,7 @@
     <h1>HOTEL-MOTEL</h1>
     <nav>
       <ul>
+        <li><a href="locations" id="locationLink">Locations</a></li>
         <li><a href="hotels" id="hotelLink">Hotels</a></li>
         <li><a href="food" id="foodLink">Food</a></li>
         <li><a href="others" id="othersLink">Others</a></li>
@@ -44,25 +45,31 @@
     // Get the Food link element
     const foodLink = document.getElementById("foodLink");
     const othersLink = document.getElementById("othersLink");
-
+    const locationLink = document.getElementById("locationLink");
     const hotelLink = document.getElementById("hotelLink");
 
     // Append the tourId as a query parameter when clicking the Food link
+    locationLink.addEventListener("click", function(event) {
+      event.preventDefault();
+      window.location.href = `/packageDetails/${tourId}`;
+    });
+
     hotelLink.addEventListener("click", function(event) {
       event.preventDefault();
       window.location.href = `/hotel/${tourId}`;
     });
 
-    /*othersLink.addEventListener("click", function(event) {
+    othersLink.addEventListener("click", function(event) {
       event.preventDefault();
       window.location.href = `/others/${tourId}`;
     });
 
-    locationLink.addEventListener("click", function(event) {
+    foodLink.addEventListener("click", function(event) {
       event.preventDefault();
-      window.location.href = `/packageDetails/${tourId}`;
-    });*/
+      window.location.href = `/food/${tourId}`;
+    });
 
+    
   </script>
 
 </body>

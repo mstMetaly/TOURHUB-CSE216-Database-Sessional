@@ -12,6 +12,7 @@
     <nav>
       <ul>
         <li><a href="locations" id="locationLink">Locations</a></li>
+        <li><a href="hotels" id="hotelLink">Hotels</a></li>
         <li><a href="food" id="foodLink">Food</a></li>
         <li><a href="others" id="othersLink">Others</a></li>
       </ul>
@@ -47,6 +48,7 @@
     const foodLink = document.getElementById("foodLink");
     const othersLink = document.getElementById("othersLink");
     const locationLink = document.getElementById("locationLink");
+    const hotelLink = document.getElementById("hotelLink");
 
     // Append the tourId as a query parameter when clicking the Food link
     foodLink.addEventListener("click", function(event) {
@@ -63,6 +65,13 @@
       event.preventDefault();
       window.location.href = `/packageDetails/${tourId}`;
     });
+
+    hotelLink.addEventListener("click", function(event) {
+      event.preventDefault();
+      window.location.href = `/hotel/${tourId}`;
+    });
+
+
 
   </script>
 

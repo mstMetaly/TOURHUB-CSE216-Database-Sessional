@@ -135,7 +135,7 @@ async function getCommentsOfLocation(locationId)
     const connection = await connectToDatabase();
 
     try{
-        const selectSql=`SELECT * FROM LOCATION_DETAILS WHERE LOCATION_ID = :locationId`;
+        const selectSql=`SELECT * FROM LOCATION_COMMENTS WHERE LOCATION_ID = :locationId`;
         const selectBindings = 
         {
             locationId : locationId
@@ -145,11 +145,11 @@ async function getCommentsOfLocation(locationId)
 
         if(result.rows.length === 0)
         {
-            console.log("No location details found for tour: ",tourId);
+            console.log("No location comments found for tour: ",tourId);
             return null;
         }
         else{
-            console.log("location details query te  for location id:",locationId, ":",result.rows);
+            console.log("location comments  query te  for location id:",locationId, ":",result.rows);
             return result.rows;
         }
 
@@ -160,6 +160,22 @@ async function getCommentsOfLocation(locationId)
     }
 }
 
+async function insertComment(insertSql,insertBindings)
+{
+    console.log("Inserting comment:", insertSql, insertBindings);
+    console.log("insert e:",insertSql,insertBindings);
+
+    try{
+        const connection = await connectToDatabase();
+        await connection.execute(insertSql,insertBindings);
+        await connection.commit();
+        console.log("commited");
+    }
+    catch(err)
+    {
+        console.log("comment insert e error!");
+    }
+}
 
 
-module.exports = {getAllLocationByTourId,getDetailsOfLocation,getCommentsOfLocation,getAllFood,getAllOthers};
+module.exports = {getAllLocationByTourId,getDetailsOfLocation,getCommentsOfLocation,getAllFood,getAllOthers,insertComment};

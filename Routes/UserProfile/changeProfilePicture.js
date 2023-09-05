@@ -47,8 +47,15 @@ router.post('/changeProfilePic', upload.single('profile-picture'), async (req, r
                 user_id: user_id,
                 filePath: relativeFilePath
             };
-            await myProfile_query.updateProfilePicPath(selectSql, selectBindings);
-            res.redirect('/myProfile');
+            try{
+                await myProfile_query.updateProfilePicPath(selectSql, selectBindings);
+                res.redirect('/myProfile');
+            }
+            catch(err)
+            {
+                console.loog("change insert e :",err);
+            }
+           
         }
     }
 });

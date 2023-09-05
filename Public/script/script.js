@@ -63,6 +63,7 @@ function scrollEventHandler() {
   const reviewSection = document.getElementById("review");
   const gallerySection = document.getElementById("gallery");
 
+
   if (isElementInViewport(packagesSection) && !packagesFetched) {
     packagesFetched = false;
     fetchTours();
@@ -170,23 +171,16 @@ async function fetchAllGallery()
     galleryDiv.classList.add('box');
 
      //adding image src
-     const imageSrc = `/${element.IMAGE_URL}`;
+     const imageSrc = `/${element.IMAGE_LINK}`;
+
      galleryDiv.innerHTML = `
      <div class="img">
-     <img src="${imageSrc} alt="image" />
+     <img src="${imageSrc}" alt="image" />
      <div class="content">
      <h3>Amazing places</h3>
      <p>CapturedBy : ${element.NAME} </p>
-     <a href="#" class="btn">See More</a>
      </div>
      `;
-     
-    /*const image = document.createElement('img');
-    image.src = element.IMAGE_URL; // Use the actual property name from your JSON data
-    image.alt = imageData.description; // Use the actual property name from your JSON data
-    // You can add more elements for captions, links, etc., as needed
-    galleryDiv.appendChild(image);*/
-
     galleryList.appendChild(galleryDiv);
 
   });
@@ -202,7 +196,6 @@ async function fetchAllReview()
 
 const Wrapper = document.querySelector(".Wrapper");
 const carousel = document.querySelector(".carousel");
-//const firstCardWidth = carousel.querySelector(".card").offsetWidth;
 const arrowBtns = document.querySelectorAll(".Wrapper i");
 
 const carouselChildrens = [...carousel.children];
@@ -216,10 +209,11 @@ console.log("review: in fetch:",data);
 carousel.innerHTML = " ";
 
 data.forEach(item =>{
+  const imageSrc = '/' + item.PROFILE_PIC;
   const card = document.createElement("li");
   card.classList.add("card");
   card.innerHTML = `
-  <div class="img"><img src="/metaly.jpg" alt="img" draggable="false"></div>
+  <div class="img"><img src="${imageSrc}" alt="img" draggable="false"></div>
   <h2>Metaly</h2>
   <p>${item.DETAILS_REVIEW}</p>
   `;
@@ -328,5 +322,4 @@ Wrapper.addEventListener("mouseleave", autoPlay);
 }
 
 
-//fetchAllGallery();
 

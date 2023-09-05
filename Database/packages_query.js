@@ -35,7 +35,7 @@ async function getAllReview()
     const connection = await connectToDatabase();
 
     try{
-        const selectSql = `SELECT * FROM PACKAGE_REVIEW`;
+        const selectSql = `SELECT * FROM PACKAGE_REVIEW P JOIN PUBLIC_INFO I ON P.USER_NAME = I.USER_NAME`;
 
         const result = await connection.execute(selectSql);
 

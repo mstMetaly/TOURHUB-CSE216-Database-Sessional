@@ -24,6 +24,7 @@ const adminHomeRouter = require('./Routes/Admin/adminHome');
 const fetchAdminHomeRouter = require('./Routes/Admin/fetchAdminHome');
 const locationDetailsRoute = require('./Routes/Package/locationDetails');
 const reviewRouter = require('./Routes/Review/review');
+const addReview = require('./Routes/Review/addReview');
 const foodRouter = require('./Routes/Package/food');
 const othersRouter = require('./Routes/Package/others');
 const hotelRouter = require('./Routes/Booking/hotel');
@@ -31,6 +32,8 @@ const fetchMyProfileRouter = require('./Routes/UserProfile/fetchMyProfile');
 const changeProfilePicRouter = require('./Routes/UserProfile/changeProfilePicture');
 const faqRouter = require('./Routes/FAQ/faq');
 const galleryRouter = require('./Routes/Gallery/gallery');
+const blogRouter = require('./Routes/Blog/blog');
+const commentRouter = require('./Routes/Package/comment');
 
 
 
@@ -74,6 +77,9 @@ app.use('/',fetchMyProfileRouter);
 app.use('/',changeProfilePicRouter);
 app.use('/',faqRouter);
 app.use('/',galleryRouter);
+app.use('/',blogRouter);
+app.use('/',commentRouter);
+app.use('/',addReview);
 
 
 app.get("/",(req,res)=>{

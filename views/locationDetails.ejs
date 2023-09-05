@@ -37,21 +37,22 @@
             <div class="Details" id="location-description"></div>
         </div>
 
-        <div class="comment-container">
+        <div class="comment-container" id="comment-container">
             <h1>Comments</h1>
-            <div class="comments" id="comments">
-                <!-- Comment items will be added here dynamically -->
-            </div>
+
+            <div class="comments" id="comment-list"></div>
+
             <div class="view-more" id="view-more">
                 <button id="view-more-button">View More Comments</button>
             </div>
-            <form id="comment-form">
+
+            <form id="comment-form" action="/storeComment/<%= encodeURIComponent(locationId) %>" method="post" enctype="multipart/form-data">
                 <div class="comment-input-container">
-                    <img src="myself.jpg" class="profile-picture" />
-                    <textarea id="comment-input" placeholder="Write a comment"></textarea>
-                    <input type="file" id="image-upload" accept="image/*">
+                    <img src="" class="profile-picture" />
+                    <textarea id="comment-input" name="commentText"  placeholder="Write a comment"></textarea>
+                    <input type="file" id="image-upload" name="file" accept="image/*">
                 </div>
-                <button type="submit">Submit</button>
+                <button class="btn" type="submit">Submit</button>
             </form>
         </div>
         
