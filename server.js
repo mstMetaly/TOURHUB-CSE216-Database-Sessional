@@ -35,6 +35,13 @@ const galleryRouter = require('./Routes/Gallery/gallery');
 const blogRouter = require('./Routes/Blog/blog');
 const commentRouter = require('./Routes/Package/comment');
 
+//admin router 
+const addNewPackageRouter = require('./Routes/Admin/addNewPackage');
+const addPackageFoodRouter = require('./Routes/Admin/addFood');
+const addLocationRouter = require('./Routes/Admin/addLocation');
+const addLocationDetailsRouter = require('./Routes/Admin/addLocationDetails');
+const addHotelRouter = require('./Routes/Admin/addHotel');
+
 
 
 const app=express();
@@ -80,6 +87,13 @@ app.use('/',galleryRouter);
 app.use('/',blogRouter);
 app.use('/',commentRouter);
 app.use('/',addReview);
+//admin
+app.use('/',addNewPackageRouter);
+app.use('/',addPackageFoodRouter);
+app.use('/',addLocationRouter);
+app.use('/',addLocationDetailsRouter);
+app.use('/',addHotelRouter);
+
 
 
 app.get("/",(req,res)=>{

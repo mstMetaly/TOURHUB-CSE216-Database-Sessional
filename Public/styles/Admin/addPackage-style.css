@@ -1,0 +1,121 @@
+body {
+    background-color: #ffffff;
+    padding: 10px;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .wrapper {
+    max-width: 800px; /* Increase the column width as needed */
+    width: 100%;
+    margin: 20px auto; /* Add margin to separate rows */
+    background-color: #ffffff; /* White background */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #44423e;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .inputfield {
+    flex-basis: calc(33.33% - 20px); /* Adjust the column width */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    color: #757575;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  .input,
+  .textarea,
+  .custom_select select {
+    width: 100%;
+    outline: none;
+    border: 1px solid #d5dbd9;
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  
+  .textarea {
+    height: 125px;
+    resize: none;
+  }
+  
+  .custom_select {
+    position: relative;
+    height: 37px;
+  }
+  
+  .custom_select:before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    border: 8px solid;
+    border-color: #d5dbd9 transparent transparent transparent;
+    pointer-events: none;
+  }
+  
+  .custom_select select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    height: 100%;
+    border: 0px;
+    padding: 8px 10px;
+    font-size: 15px;
+    border: 1px solid #d5dbd9;
+    border-radius: 3px;
+  }
+  
+  .input:focus,
+  .textarea:focus,
+  .custom_select select:focus {
+    border: 1px solid #373632;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 15px;
+    border: 0px;
+    background: #454441;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+  }
+  
+  .btn:hover {
+    background: #080808;
+  }
+  
+  .inputfield:last-child {
+    margin-bottom: 0;
+  }
+  
+  @media (max-width: 420px) {
+    .inputfield {
+      flex-basis: 100%; /* On smaller screens, each form takes up the full width */
+      margin-bottom: 10px;
+    }
+  }
+  

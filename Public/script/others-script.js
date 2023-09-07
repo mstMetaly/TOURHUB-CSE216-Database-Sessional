@@ -18,7 +18,9 @@ async function fetchOthers(tourId)
         otherDiv.innerHTML = 
     `<img src="" alt="" />
     <div class="content">
+    <p>"${other.TRANSPORT_DETAILS}" </p>
       <h3><i class="fas fa-map-markar-alt"></i>"${other.DESCRIPTION}"</h3>
+      <h3><i class="fas fa-map-markar-alt"></i>"${other.CAUTIONS}"</h3>
         <div class="stars">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -26,8 +28,6 @@ async function fetchOthers(tourId)
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
         </div>
-
-      <p>"${other.TRANSPORT_DETAILS}" </p>
     </div>
   `;
 

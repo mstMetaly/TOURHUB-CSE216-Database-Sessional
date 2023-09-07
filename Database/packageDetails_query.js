@@ -10,7 +10,7 @@ async function getAllLocationByTourId(tourId)
     const connection = await connectToDatabase();
 
     try{
-        const selectSql=`SELECT * FROM LOCATION WHERE TOUR_ID = :tourId`;
+        const selectSql=`SELECT * FROM LOCATION L JOIN LOCATION_IMAGE J ON L.LOCATION_ID = J.LOCATION_ID WHERE TOUR_ID = :tourId`;
         const selectBindings = 
         {
             tourId : tourId

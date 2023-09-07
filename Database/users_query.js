@@ -1,16 +1,27 @@
 const oracledb=require('oracledb');
 
 //importing databaseConnect
-const { connectToDatabase } = require('./databaseConnect'); 
+const { connectToDatabase } = require('./databaseConnect');
 
 oracledb.outFormat=oracledb.OUT_FORMAT_OBJECT;
 
 
 //insert new user into database when new user registered
-async function insertUser(insertSql,insertBindings) {
+async function insertUser(user_id, username, gmail, password) {
     const connection=await connectToDatabase();
 
     try {
+        
+        const insertSql = `
+        INSERT INTO USERS (USER_ID, USERNAME, GMAIL, PASSWORD) VALUES (:user_id, :username, :gmail, :password)`;
+        const insertBindings = {
+    
+            user_id:user_id,
+            username: username,
+            gmail: gmail,
+            password: password
+        };
+    
         await connection.execute(insertSql, insertBindings);
         await connection.commit();
 

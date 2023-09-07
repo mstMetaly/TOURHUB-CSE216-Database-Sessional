@@ -63,7 +63,7 @@ router.get('/adminMyProfile',async(req,res)=>{
         res.redirect('/login');
     }
     else{
-        res.render('adminMyProfile');
+        res.render('AdminProfile/adminProfile.ejs');
     }
 });
 

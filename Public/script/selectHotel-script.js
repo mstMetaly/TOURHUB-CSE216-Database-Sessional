@@ -14,7 +14,7 @@ async function fetchHotels(tourId)
         hotelDiv.classList.add('box');
 
         hotelDiv.innerHTML = 
-    `<img src="${hotel.IMAGE_URL}" alt="" />
+    `<img src="/${hotel.IMAGE_URL}" alt="" />
     <div class="content">
       <h3><i class="fas fa-map-markar-alt"></i>"${hotel.HOTEL_NAME}"</h3>
       <h3><i class="fas fa-map-markar-alt"></i>"${hotel.BUDGET}"</h3>

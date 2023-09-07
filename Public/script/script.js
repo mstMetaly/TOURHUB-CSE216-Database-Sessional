@@ -132,10 +132,10 @@ async function fetchTours()
     tourDiv.classList.add('box');
 
     //adding image src
-    const imageSrc = `/${tour.TOUR_ID}.jpg`;
+    const imageSrc = `/${tour.IMAGE_URL}`;
 
     tourDiv.innerHTML = 
-    `<img src="/image/${imageSrc}" alt="" />
+    `<img src="${imageSrc}" alt="" />
     <div class="content">
       <h3><i class="fas fa-map-markar-alt"></i>"${tour.TOUR_NAME}"</h3>
         <div class="stars">
@@ -146,7 +146,7 @@ async function fetchTours()
           <i class="fas fa-star"></i>
         </div>
 
-      <div class="price $">"${tour.Price}"<span>$120.00</span></div>
+      <div class="price $">"${tour.PRICE}"<span>$120.00</span></div>
       
       <a href="/packageDetails/${tour.TOUR_ID}" class="btn">Details</a>
       <a href="/booking/${tour.TOUR_ID}" class="btn">Book Now</a>

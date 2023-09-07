@@ -1,1 +1,270 @@
-<p>Add New Package Page</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Tour</title>
+    <link rel="stylesheet" href="/styles/Admin/addPackage-style.css" />
+  </head>
+  <body>
+
+   
+    <div class="wrapper">
+      <div class="title">PACKAGES</div>
+      <form action="/addPackage" method="POST" enctype="multipart/form-data">
+      <div class="form">
+        <div class="inputfield">
+          <label>TOUR_ID</label>
+          <input type="number" name="tourId" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>TOUR_NAME</label>
+          <input type="text" name="tourName" class="input" />
+        </div>
+        <div class="inputfield">
+            <label>TOUR_IMAGE</label>
+            <input type="file" name="tourImage" class="input" accept="image/*" />
+          </div>
+        <div class="inputfield">
+          <label>Price</label>
+          <input type="text" name="price" class="input" />
+        </div>
+        <div class="inputfield">
+            <label>StartDate (YYYY-MM-DD)</label>
+          <input type="text" name="startDate" class="input" />
+        </div>
+        <div class="inputfield">
+            <label>EndDate (YYYY-MM-DD)</label>
+          <input type="text" name="endDate" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>totalDay</label>
+          <input type="text" name="totalDay" class="input" />
+        </div>
+        <div class="inputfield">
+          <input type="submit" value="Insert" class="btn" />
+        </div>
+      </div>
+      </form>
+    </div>
+
+
+    <div class="wrapper">
+      <div class="title">Packages_FOOD</div>
+      <form action="/addPackageFood" method="POST" enctype="multipart/form-data">
+      <div class="form">
+        <div class="inputfield">
+          <label>TOUR_ID</label>
+          <input type="text" name="tourId" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>FOOD_DESCRIPTION</label>
+          <input type="text" name="foodDescription" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>FOOD_IMAGE</label>
+          <input type="file" name="foodImage" class="input" accept="image/*" />
+        </div>
+        <div class="inputfield">
+          <label>FOOD_NAME</label>
+          <input type="text" name="foodName" class="input" />
+        </div>
+        <div class="inputfield">
+          <input type="submit" value="Insert" class="btn" />
+        </div>
+      </div>
+      </form>
+    </div>
+
+
+    <div class="wrapper">
+      <div class="title">LOCATION</div>
+      <form action="/addLocation" method="POST" enctype="multipart/form-data">
+      <div class="form">
+        <div class="inputfield">
+          <label>LOCATION_ID</label>
+          <input type="text" name="locationId" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>LOCATION_URL</label>
+          <input type="text" name="locationURL" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>LOCATION_REVIEW</label>
+          <input type="text" name="locationRating" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>LOCATION_DESCRIPTION</label>
+          <input type="text" name="locationDescription" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>TOUR_ID</label>
+          <input type="text" name="tourId" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>LOCATION_NAME</label>
+          <input type="text" name="locationName" class="input" />
+        </div>
+        <div class="inputfield">
+            <label>IMAGE_URL</label>
+            <input type="file" name="locationImage" class="input" accept="image/*" />
+          </div>
+        <div class="inputfield">
+          <label>DAY</label>
+          <input type="text" name="day" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>COUNTRY</label>
+          <input type="text" name="country" class="input" />
+        </div>
+
+        <div class="inputfield">
+          <input type="submit" value="Insert" class="btn" />
+        </div>
+      </div>
+      </form>
+    </div>
+
+    
+
+      <!--location details-->
+    <div class="wrapper">
+      <div class="title">LOCATION_DETAILS</div>
+      <form action="/addLocationDetails" method="POST">
+      <div class="form">
+        <div class="inputfield">
+          <label>LOCATION_ID</label>
+          <input type="number" name="locationId" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>DETAILS</label>
+          <input type="text" name="locationDetails" class="input" />
+        </div>
+        <div class="inputfield">
+          <input type="submit" value="Insert" class="btn" />
+        </div>
+      </div>
+      </form>
+    </div>
+
+
+
+    <!--location details image-->
+    <div class="wrapper">
+        <div class="title">LOCATION_DETAILS_IMAGE</div>
+        <form action="/addLocationDetailsImage" method="POST" enctype="multipart/form-data">
+        <div class="form">
+          <div class="inputfield">
+            <label>LOCATION_ID</label>
+            <input type="text" name="locationId" class="input" />
+          </div>
+          <div class="inputfield">
+            <label>IMAGE_URL</label>
+            <input type="file" name="locationDetailsImage" class="input" />
+          </div>
+          <div class="inputfield">
+            <input type="submit" value="Insert" class="btn" />
+          </div>
+        </div>
+        </form>
+      </div>
+
+
+    <!--hotel info-->
+    <div class="wrapper">
+        <div class="title">HOTEL_INFO</div>
+        <form action="/addHotel" method="POST" enctype="multipart/form-data">
+            <div class="form">
+                <div class="inputfield">
+                    <label>HOTEL_ID</label>
+                    <input type="text" name="hotelId" class="input" />
+                </div>
+                <div class="inputfield">
+                    <label>HOTEL_NAME</label>
+                    <input type="text" name="hotelName" class="input" />
+                </div>
+                <div class="inputfield">
+                    <label>BUDGET</label>
+                    <input type="text" name="budget" class="input" />
+                </div>
+                <div class="inputfield">
+                    <label>TOUR_ID</label>
+                    <input type="text" name="tourId" class="input" />
+                </div>
+                <div class="inputfield">
+                    <label>HOTEL_DETAILS</label>
+                    <input type="text" name="hotelDetails" class="input" />
+                </div>
+                <div class="inputfield">
+                    <label>IMAGE_URL</label>
+                    <input type="file" name="hotelImage" class="input" accept="image/*" />
+                </div>
+                <div class="inputfield">
+                    <input type="submit" value="Insert" class="btn" />
+                </div>
+            </div>
+        </form>
+    </div>
+    
+
+    <!--hotel room image -->
+    <div class="wrapper">
+        <div class="title">HOTEL_ROOM</div>
+        <div class="form">
+          <form action="/addHotelRoom" method="POST" enctype="multipart/form-data">
+            <div class="inputfield">
+              <label>HOTEL_ID</label>
+              <input type="text" name="hotelId" class="input" />
+            </div>
+            <div class="inputfield">
+              <label>ROOM_NO</label>
+              <input type="text" name="roomNo" class="input" />
+            </div>
+            <div class="inputfield">
+              <label>ROOM_IMAGE</label>
+              <input type="file" name="roomImage" class="input" accept="image/*" />
+            </div>
+            <div class="inputfield">
+              <label>ROOM_DETAILS</label>
+              <input type="text" name="roomDetails" class="input" />
+            </div>
+            <div class="inputfield">
+              <input type="submit" value="Insert" class="btn" />
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+    <!--ALL INSTRUCTIONS AND CAUTIONS-->
+    <div class="wrapper">
+        <div class="title">ALL INSTRUCTIONS AND CAUTIONS</div>
+        <form action="/addInstructions" method="POST">
+          <div class="form">
+            <div class="inputfield">
+              <label>TOUR_ID</label>
+              <input type="text" name="tourId" class="input" />
+            </div>
+            <div class="inputfield">
+              <label>TRANSPORT_DETAILS</label>
+              <input type="text" name="transportDetails" class="input" />
+            </div>
+            <div class="inputfield">
+              <label>INSTRUCTIONS</label>
+              <input type="text" name="instructions" class="input" />
+            </div>
+            <div class="inputfield">
+              <label>CAUTIONS</label>
+              <input type="text" name="cautions" class="input" />
+            </div>
+            <div class="inputfield">
+              <input type="submit" value="Insert" class="btn" />
+            </div>
+          </div>
+        </form>
+      </div>
+      
+
+  </body>
+</html>

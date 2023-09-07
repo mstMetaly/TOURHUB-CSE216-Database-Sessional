@@ -13,8 +13,10 @@ async function fetchLocations(tourId)
         const locationDiv = document.createElement('div');
         locationDiv.classList.add('box');
 
+        const imageSrc = '/' + location.IMAGE_URL;
+
         locationDiv.innerHTML = 
-    `<img src="/sundarban.jpeg" alt="" />
+    `<img src="${imageSrc}" alt="" />
     <div class="content">
       <h3><i class="fas fa-map-markar-alt"></i>"${location.LOCATION_NAME}"</h3>
         <div class="stars">

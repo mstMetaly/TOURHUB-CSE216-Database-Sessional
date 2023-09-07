@@ -16,7 +16,7 @@ async function fetchFood(tourId)
         foodDiv.classList.add('box');
 
         foodDiv.innerHTML = 
-    `<img src="${food.FOOD_IMAGE}" alt="" />
+    `<img src="/${food.FOOD_IMAGE}" alt="" />
     <div class="content">
       <h3><i class="fas fa-map-markar-alt"></i>"${food.FOOD_NAME}"</h3>
         <div class="stars">
@@ -27,7 +27,7 @@ async function fetchFood(tourId)
           <i class="fas fa-star"></i>
         </div>
 
-      <p>"${food.FOOD_DESCRIPTION}" </p>
+      <h2>"${food.FOOD_DESCRIPTION}" </h2>
       <a href="/SeeMoreDetails/${food.FOOD_NAME}" class="see-more-link">See More</a>
       
     </div>

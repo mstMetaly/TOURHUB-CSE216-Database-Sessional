@@ -3,6 +3,7 @@
 const descriptionElement = document.getElementById("location-description");
 const commentForm = document.getElementById("comment-form");
 const commentList = document.getElementById("comment-list");
+const imageList = document.getElementById("image-container");
 
 
 // Fetch and display location description
@@ -16,6 +17,7 @@ async function fetchDescription(locationId) {
     locationDiv.innerHTML =  `<p> ${detail.DETAILS} </p>`;
     descriptionElement.appendChild(locationDiv);
   });
+
 }
 
 // Fetch and display comments
@@ -36,7 +38,9 @@ async function fetchComments(locationId) {
 
 // locationDetails-script.js
 
+
 document.addEventListener("DOMContentLoaded", function () {
+
   const slider = document.querySelector(".image-slider");
   const slides = Array.from(document.querySelectorAll(".image-slide"));
   const prevButton = document.querySelector(".prev-button");

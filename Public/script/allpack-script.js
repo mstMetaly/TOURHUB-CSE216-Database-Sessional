@@ -10,8 +10,10 @@ async function fetchSeeAllPackages() {
         packCard.innerHTML = `
               <h3>${pack.TOUR_ID}</h3>
               <h3>${pack.TOUR_NAME}</h3>
-              <p>Price: $${pack.Price}</p>
-              <p>Duration: $${pack.totalDay}</p>
+              <p>Price: $${pack.PRICE}</p>
+              <p>Duration: ${pack.TOTALDAY}</p>
+              <p>Start Date: ${pack.STARTDATE}</p>
+              <p>End Date: ${pack.ENDDATE}</p>
               <div class="btn-container">
                 <button class="update-btn">Update</button>
                 <button class="delete-btn">Delete</button>

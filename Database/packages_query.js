@@ -8,7 +8,7 @@ async function getAllPackages()
     const connection = await connectToDatabase();
 
     try{
-        const selectSql = `SELECT * FROM PACKAGES`;
+        const selectSql = `SELECT * FROM PACKAGES P JOIN PACKAGE_IMAGE G ON P.TOUR_ID = G.TOUR_ID`;
 
         const result = await connection.execute(selectSql);
 
@@ -25,6 +25,7 @@ async function getAllPackages()
     }
     catch(err)
     {
+        console.log("package query te error!");
         console.log(err);
     }
 

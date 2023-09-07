@@ -2,7 +2,6 @@ const express=require("express");
 const users_query=require('../../Database/users_query');
 
 const authUtils= require('../../middlewares/auth-utils');
-const e = require("express");
 
 const router=express.Router();
 
@@ -28,16 +27,9 @@ router.post('/signup',async(req,res)=>{
     const username=req.body.username;
     const password=req.body.password;
     const confirmPassword=req.body.confirmPassword;
+    const user_id =  Date.now().toString();
 
-    const insertSql = `INSERT INTO USERS (user_id, username, gmail, password) VALUES (:user_id, :username, :gmail, :password)`;
-    const insertBindings = {
-
-        user_id: Date.now().toString(),
-        username: username,
-        gmail: gmail,
-        password: password
-    };
-
+   
     let errors=[],result=[];
     
     result=await users_query.getUserByUsername(username);
@@ -55,7 +47,8 @@ router.post('/signup',async(req,res)=>{
                     errors.push("Password should be 8 characters or more");
                 }
                 else{
-                    users_query.insertUser(insertSql,insertBindings);
+                    //users_query.insertUser(insertSql,insertBindings);
+                    users_query.insertUser(user_id, username, gmail, password);
 
                     await authUtils.loginUser(res,gmail);
 

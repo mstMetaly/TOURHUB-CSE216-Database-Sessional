@@ -10,7 +10,7 @@ async function fetchHotelRooms(hotel_id)
         roomDiv.classList.add('box');
 
         roomDiv.innerHTML = 
-    `<img src="${room.ROOM_IMAGE}" alt="" />
+    `<img src="/${room.ROOM_IMAGE}" alt="" />
     <div class="content">
       <h3><i class="fas fa-map-markar-alt"></i>"${room.ROOM_NO}"</h3>
       <p>"${room.ROOM_DETAILS}" </p>
