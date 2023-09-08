@@ -1,0 +1,121 @@
+/* Apply a reset to remove default padding and margin */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Set a background color for the body */
+  body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style the header */
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  header h1 {
+    font-size: 24px;
+  }
+  
+  /* Style the navigation menu */
+  nav ul {
+    list-style-type: none;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  /* Style the main content section */
+  main {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style the update-profile section */
+  .update-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  /* Style the profile picture change form */
+  .update-pic {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .update-pic img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%; /* Makes the image round like a profile picture */
+  }
+  
+  /* Style the Change Profile Picture button */
+  /*#profile-picture-input {
+    /*display: none;
+
+  }*/
+  
+  .button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style the profile info form */
+  .profile-info {
+    flex: 2;
+  }
+  
+  /* Style form labels and inputs */
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="file"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Style the submit button */
+  .button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  

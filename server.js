@@ -41,6 +41,8 @@ const addPackageFoodRouter = require('./Routes/Admin/addFood');
 const addLocationRouter = require('./Routes/Admin/addLocation');
 const addLocationDetailsRouter = require('./Routes/Admin/addLocationDetails');
 const addHotelRouter = require('./Routes/Admin/addHotel');
+const adminProfileRouter = require('./Routes/AdminProfile/adminProfile');
+const changeAdminPicRouter = require('./Routes/AdminProfile/changeProfilePic');
 
 
 
@@ -93,6 +95,8 @@ app.use('/',addPackageFoodRouter);
 app.use('/',addLocationRouter);
 app.use('/',addLocationDetailsRouter);
 app.use('/',addHotelRouter);
+app.use('/',adminProfileRouter);
+app.use('/',changeAdminPicRouter);
 
 
 

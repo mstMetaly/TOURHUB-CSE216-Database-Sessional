@@ -1,0 +1,25 @@
+CREATE OR REPLACE PROCEDURE BOOKING_INSERTION
+        (p_user_id IN NUMBER,
+        p_booking_id IN NUMBER,
+        p_transaction_no IN VARCHAR2,
+        p_bkash_no IN NUMBER,
+        p_payment_date IN VARCHAR2,
+        p_totalAmount IN NUMBER,
+        p_time IN DATE,
+        p_tour_id IN NUMBER
+        )
+        IS
+        p_user_name VARCHAR2(200);
+        BEGIN
+        SELECT USER_NAME INTO p_user_name
+        FROM USER_PROFILE_INFO
+        WHERE USER_PROFILE_INFO.USER_ID = p_user_id;
+        
+        INSERT INTO "TOUR_HISTORY"("USER_ID","TOUR_ID","BOOKING_ID") VALUES(p_user_id,p_tour_id,p_booking_id);
+        COMMIT;
+        INSERT INTO "PAYMENT_INFO"("TRANSACTION_NO","BKASH_NO","PAYMENT_DATE","TOTAL_AMOUNT") VALUES(p_transaction_no,p_bkash_no,p_payment_date,p_totalAmount);
+        COMMIT;
+        INSERT INTO "LOG_TABLE"("USER_NAME","ACTIVITY","TIME")VALUES(p_user_name,'A user booked a package',TO_DATE(p_time, 'YYYY-MM-DD HH24:MI:SS'));
+        COMMIT;
+        END;
+        /

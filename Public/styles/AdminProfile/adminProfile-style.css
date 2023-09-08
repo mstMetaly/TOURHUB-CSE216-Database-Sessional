@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color: #555;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .profile-section,
+  .tour-history,
+  .current-tour,
+  .update-section {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-picture img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #333;
+    transition: border-color 0.3s ease;
+  }
+  
+  .profile-picture img:hover {
+    border-color: #555;
+  }
+  
+  .change-picture-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .change-picture-button:hover {
+    background-color: #555;
+  }
+  
+  .profile-info form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-info input,
+  .profile-info textarea,
+  .profile-info select {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .profile-info button[type="submit"],
+  .profile-info .delete-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .profile-info button[type="submit"]:hover,
+  .profile-info .delete-button:hover {
+    background-color: #555;
+  }
+
+  
+  /* ... (previous CSS rules) ... */
+
+.expand-form-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .expand-form-button:hover {
+    background-color: #555;
+  }
+  
+  .hidden-form {
+    display: none;
+  }
+  
+  /* ... (other CSS rules) .css for change profile picture.. */
+  /* Style for the container of the profile picture */
+.update-pic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Style for the circular profile picture */
+.update-pic img {
+  width: 150px; /* Adjust the size as needed */
+  height: 150px; /* Adjust the size as needed */
+  border-radius: 50%;
+  border: 2px solid #1877f2; /* Facebook blue color */
+}
+
+/* Style for the "Change Profile Picture" button */
+.update-pic button {
+  margin-top: 10px;
+  background-color: #1877f2; /* Facebook blue color */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.update-pic button:hover {
+  background-color: #14568f; /* Darker shade of Facebook blue on hover */
+}
+
+  
