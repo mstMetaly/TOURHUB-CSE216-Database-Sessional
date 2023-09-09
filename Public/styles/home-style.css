@@ -129,7 +129,7 @@ header .trip_bx .search_bx input[type="button"]:hover {
   padding-top: 2.5rem;
 }
 section {
-  padding: 20rem 9%;
+  padding: 5rem 7%;
 }
 .home {
   min-height: 100vh;
@@ -319,56 +319,73 @@ section {
 
 
 /* css for contact section */
-
 .contact-section {
-  padding: 40px 0;
-  background-color: #f5f5f5;
-  text-align: center;
-}
-
-.contact-container {
+  padding: 60px 0 40px;
+  background-color: #333;
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  left: 0;
+  right: 0;
 }
-
-.admin-card {
+.contact-section .card {
+  position: relative;
+  width: 400px;
   background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 45%;
+  border-radius: 8px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
+  margin: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px;
+  align-items: center;
+  height: 100%;
 }
 
-.admin-card h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
+.card-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5),
+    0 5px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
-.admin-card p {
-  font-size: 16px;
-  margin: 8px 0;
+.card-image img {
+  width: 100%;
+  transform: scale(1.2);
 }
 
-.agency-address {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  width: 60%;
+p {
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+  text-align: center;
+  font-size: 1rem;
+  text-transform: lowercase;
 }
 
-.agency-address h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
+.name {
+  margin-top: 50px;
+  font-size: 1.4em;
+  color: #333;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+  margin-bottom: 2px;
 }
-
-.agency-address p {
-  font-size: 16px;
-  margin: 8px 0;
+.card:last-child {
+  font-size: 1.5rem;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 /*--------CSS for review ---------*/
@@ -526,7 +543,7 @@ body {
   width: 100%;
   height: auto;
   padding: 3%;
-  background-color: var(--softColor);
+  /*background-color: var(--softColor);*/
 }
 .header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),

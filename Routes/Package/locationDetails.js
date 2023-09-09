@@ -40,4 +40,29 @@ router.get('/locationDetails/:locationId' , async(req,res)=>{
 });
 
 
+//router for getting location details image 
+router.get('/locationDetailsImage/:locationId' , async(req,res)=>{
+    if(req.user == null)
+    {
+        res.redirect('/login');
+    }
+    else{
+        const locationId = req.params.locationId;
+        
+        let details =  await packageDetails_query.getImagesOfLocation(locationId);
+
+        if(details == undefined)
+        {
+            console.log("location details image router e null");
+            return null;
+        }
+        else{
+            console.log("rouer e imagepaths:",details);
+            return res.json(details);
+        }
+    }
+});
+
+
+
 module.exports = router;

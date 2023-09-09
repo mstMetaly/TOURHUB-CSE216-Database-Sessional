@@ -27,25 +27,26 @@
     </nav>
 
 
-    <div class="trip_bx">
+       <div class="trip_bx">
       <div class="search_bx">
         <div class="card">
           <h4>Location<i class="bi bi-caret-down-fill"></i></h4>
-          <input type="text" placeholder="Enter your destination" />
+          <input type="text" id="locationInput" placeholder="Enter your destination" />
         </div>
         <div class="card">
           <h4>Date<i class="bi bi-caret-down-fill"></i></h4>
-          <input type="date" />
+          <input type="date" id="dateInput"/>
         </div>
-        <input type="button" value="Explore" />
+        <input type="button" id="explore" value="Explore" />
       </div>
     </div>
   </header>
+    
+
   <section class="home" id="home">
     <div class="content">
       <h3>Adventure is worthwhile</h3>
       <p>Discover new places with us</p>
-      <a href="#" class="btn">Discover more</a>
     </div>
     <div class="control">
       <span class="vid-btn active" data-src="vid-1.mp4"></span>
@@ -246,30 +247,53 @@
 
   <!--for contact info-->
   <section class="contact-section">
-    <div class="contact-container">
-      <div class="admin-card">
-        <h3>Admin 1</h3>
-        <p>Name: Metaly</p>
-        <p>Email: mst@example.com</p>
-        <p>Phone: +1234567890</p>
+    <div class="card">
+      <div class="card-image">
+          <img src="/metaly.jpg" alt="Profile image">
       </div>
-      <div class="admin-card">
-        <h3>Admin 2</h3>
-        <p>Name: Saima</p>
-        <p>Email: saima@example.com</p>
-        <p>Phone: +9876543210</p>
+      <p class="name">Metaly </p>
+      <p>880-140-975-511-66</p>
+      <p>metalykhatun.0079@gmail.com</p>
+  </div>
+
+  <div class="card">
+      <div class="card-image">
+          <img src="myself.jpg" alt="Profile image">
       </div>
-    </div>
-    <div class="agency-address">
-      <h3>Our Agency Office</h3>
-      <p>110,Zahir Raihan Road, Dhaka-1200</p>
-      <p>Country : Bangladesh</p>
-    </div>
+      <p class="name">Habiba </p>
+      <p>880-140-975-511-66</p>
+      <p>habibarafique526@gmail.com</p>
+  </div>
+
+  <div class="card">
+    <h3>Our Agency Office</h3>
+    <p>110,Zahir Raihan Road, Dhaka-1200</p>
+    <p>Country : Bangladesh</p>
+  </div>
   </section>
 
 
 
   <script src="/script/script.js"></script>
+
+  
+<script>
+  // Get a reference to the button element
+  var exploreButton = document.getElementById("explore");
+
+  // Add a click event listener to the button
+  exploreButton.addEventListener("click", function () {
+     
+  const locationInput = document.getElementById("locationInput").value;
+    const dateInput = document.getElementById("dateInput").value;
+
+  // Construct the URL with the input values as query parameters
+  const newPageUrl = `/searchPage?location=${encodeURIComponent(locationInput)}&date=${encodeURIComponent(dateInput)}`;
+      window.location.href = newPageUrl;
+  });
+</script>
+
+
 </body>
 
 </html>

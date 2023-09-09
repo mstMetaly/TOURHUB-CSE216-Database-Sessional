@@ -1,5 +1,6 @@
 //script for packageDetails.ejs file
 
+
 async function fetchFood(tourId)
 {
     //this will fetch all locations for a tour
@@ -40,3 +41,5 @@ async function fetchFood(tourId)
 }
 
 fetchFood(tourId);
+
+

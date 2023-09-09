@@ -114,4 +114,73 @@ router.post('/updateProfile',async(req,res)=>{
     }
 });
 
+
+
+//route for previus tour history 
+router.get('/fetchPreviousTourHistory',async(req,res)=>{
+        if(req.user == null)
+        {
+            res.redirect('/login');
+        }
+        else{
+            let result = [];
+            result= await myProfile_query.getPreviousTourHistory(req.user.user_id);
+
+            if(result == undefined)
+            {
+                console.log("nothing fetched in previous tour router");
+                return null;
+            }
+            else{
+                console.log("fetched previous:",result);
+                return res.json(result);
+            }
+        }
+});
+
+
+
+router.get('/fetchCurrentTourHistory',async(req,res)=>{
+    if(req.user == null)
+    {
+        res.redirect('/login');
+    }
+    else{
+        let result = [];
+        result= await myProfile_query.getCurrentTourHistory(req.user.user_id);
+
+        if(result == undefined)
+        {
+            console.log("nothing fetched in previous tour router");
+            return null;
+        }
+        else{
+            console.log("fetched previous:",result);
+            return res.json(result);
+        }
+    }
+});
+
+
+
+//cancel request for a tour 
+
+router.get('/cancelRequest/:booking_id',async(req,res)=>{
+    if(req.user == null)
+    {
+        res.redirect('/login');
+    }
+    else{
+       const booking_id = req.params.booking_id;
+       try{
+        await myProfile_query.insertCancelRequest(req.user.user_id,booking_id);
+        res.redirect('/current-tour');
+       }
+       catch(err)
+       {
+        console.log("Cancel request router e error!");
+       }     
+    }
+});
+
 module.exports = router;

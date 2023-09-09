@@ -29,23 +29,51 @@ async function fetchComments(locationId) {
   console.log("fetchhhhhhhh comments:",comments);
 
   comments.forEach(comment => {
-    addComment(comment.USER_NAME, comment.PROFILE_PICTURE, comment.COMMENT_TEXT, comment.IMAGE);
+    addComment(comment.USER_NAME, comment.PROFILE_PIC, comment.COMMENT_TEXT, comment.IMAGE);
   });
 }
 
 
-//for sliding
+// Fetch description and comments when the page loads
+fetchDescription(locationId);
+fetchComments(locationId);
 
-// locationDetails-script.js
+//for sliding location details image 
 
-
-document.addEventListener("DOMContentLoaded", function () {
+//fucntion for fetching locationDetailsImage paths
+async function fetchLocationDetailsImage()
+{
 
   const slider = document.querySelector(".image-slider");
-  const slides = Array.from(document.querySelectorAll(".image-slide"));
   const prevButton = document.querySelector(".prev-button");
   const nextButton = document.querySelector(".next-button");
   let currentIndex = 0;
+
+
+  const response = await fetch(`/locationDetailsImage/${locationId}`);
+  let imagePaths =[];
+  imagePaths =  await response.json();
+
+  // Function to create an image slide
+  function createImageSlide(imagePath) {
+    const imageSlide = document.createElement("div");
+    imageSlide.classList.add("image-slide");
+
+    const img = document.createElement("img");
+    img.src =  `/${imagePath}`;
+    console.log("image path hocce:",imagePath);
+    img.alt = "";
+
+    imageSlide.appendChild(img);
+    slider.appendChild(imageSlide);
+  }
+
+  // Loop through the image paths and create image slides
+  imagePaths.forEach((imagePath) => {
+    createImageSlide(imagePath.IMAGE_URL);
+  });
+
+  const slides = Array.from(document.querySelectorAll(".image-slide"));
 
   function updateSliderPosition() {
     slider.style.transform = `translateX(-${currentIndex * 100}%)`;
@@ -71,14 +99,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   updateSliderPosition();
-});
+
+}
+
+fetchLocationDetailsImage();
 
 
-// Fetch description and comments when the page loads
-fetchDescription(locationId);
-fetchComments(locationId);
-
-
+//comment section
 async function addComment(username, profilePicture, text, imageFile) {
 
     
@@ -88,7 +115,7 @@ async function addComment(username, profilePicture, text, imageFile) {
 
   const profilePictureElement = document.createElement("img");
   //profile picture add korte hobe
-  profilePictureElement.src = profilePicture;
+  profilePictureElement.src = `/${profilePicture}`;
   profilePictureElement.classList.add("profile-picture");
 
   const commentContent = document.createElement("div");
@@ -107,6 +134,14 @@ async function addComment(username, profilePicture, text, imageFile) {
   if (imageFile) {
     const commentImageElement = document.createElement("img");
     commentImageElement.src = imageFile; // Set the source directly to the imageFile path
+    let maxHeight = 100;
+    let maxWidth = 100;
+    if(commentImageElement.width > 100 || commentImageElement.height > 100)
+    {
+      commentImageElement.width = 100;
+      commentImageElement.height =100;
+    }
+
     commentImageElement.classList.add("comment-image");
     commentContent.appendChild(commentImageElement);
 }

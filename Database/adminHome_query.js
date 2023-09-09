@@ -54,4 +54,63 @@ async function admin_getAllPackages()
     }
 }
 
-module.exports = {admin_getAllUser,admin_getAllPackages};
+//gettting all cancel request 
+async function getAllCancelRequest(){
+    const connection = await connectToDatabase();
+
+    try{
+        const selectSql = `SELECT C.BOOKING_ID,P.NAME,P.TID
+        FROM CANCELLATION_INFO C,
+        (SELECT B.BOOKING_ID AS BOOK , B.FULL_NAME AS NAME , T.TOUR_ID AS TID
+        FROM BOOKING_INFO B JOIN TOUR_HISTORY T 
+        ON B.BOOKING_ID =  T.BOOKING_ID
+        )P
+        WHERE C.BOOKING_ID= P.BOOK
+        `;
+
+        let result = [];
+        result = await connection.execute(selectSql);
+
+        if(result.rows.length === 0)
+        {
+            return null;
+        }
+        else{
+            console.log("cancel request query te",result.rows);
+            return result.rows;
+        }
+    }
+    catch(err)
+    {
+        console.log("cancel request query te error!",err);
+    }
+}
+
+
+async function confirmCancelRequest(booking_id)
+{
+    const connection = await connectToDatabase();
+
+    try{
+        const deleteSql1 = `DELETE FROM TOUR_HISTORY WHERE BOOKING_ID = :booking_id`;
+        const deleteSql2 = ` DELETE FROM CANCELLATION_INFO WHERE BOOKING_ID = :booking_id`;
+        const deleteSql3 = `DELETE FROM  BOOKING_INFO WHERE BOOKING_ID = :booking_id`;
+
+        const deleteBindings = {booking_id};
+        await connection.execute(deleteSql1,deleteBindings);
+        await connection.commit();
+
+        await connection.execute(deleteSql2,deleteBindings);
+        await connection.commit();
+
+        await connection.execute(deleteSql3,deleteBindings);
+        await connection.commit();
+
+    }catch(err)
+    {
+        console.log("confirm cancel request query te error!",err);
+    }
+}
+
+
+module.exports = {admin_getAllUser,admin_getAllPackages,getAllCancelRequest,confirmCancelRequest};

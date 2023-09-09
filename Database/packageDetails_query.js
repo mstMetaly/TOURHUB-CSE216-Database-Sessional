@@ -129,13 +129,49 @@ async function getDetailsOfLocation(locationId)
     }
 }
 
+
+
+//get Images of a location by locationId 
+async function getImagesOfLocation(locationId)
+{
+    const connection = await connectToDatabase();
+
+    try{
+        const selectSql=`SELECT * FROM LOCATION_DETAILS_IMAGE WHERE LOCATION_ID = :locationId`;
+        const selectBindings = 
+        {
+            locationId : locationId
+        };
+
+        let result = await connection.execute(selectSql , selectBindings);
+
+        if(result.rows.length === 0)
+        {
+            console.log("No location details image found for tour: ",locationId);
+            return null;
+        }
+        else{
+            console.log("location details image for location id:",locationId, ":",result.rows);
+            return result.rows;
+        }
+
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+}
+
+
+
+
 //function for fetching comment data
 async function getCommentsOfLocation(locationId)
 {
     const connection = await connectToDatabase();
 
     try{
-        const selectSql=`SELECT * FROM LOCATION_COMMENTS WHERE LOCATION_ID = :locationId`;
+        const selectSql=`SELECT * FROM LOCATION_COMMENTS L JOIN PUBLIC_INFO P ON(L.USER_NAME = P.USER_NAME) WHERE L.LOCATION_ID = :locationId`;
         const selectBindings = 
         {
             locationId : locationId
@@ -160,6 +196,9 @@ async function getCommentsOfLocation(locationId)
     }
 }
 
+
+//fucntion for inserting images 
+
 async function insertComment(insertSql,insertBindings)
 {
     console.log("Inserting comment:", insertSql, insertBindings);
@@ -178,4 +217,4 @@ async function insertComment(insertSql,insertBindings)
 }
 
 
-module.exports = {getAllLocationByTourId,getDetailsOfLocation,getCommentsOfLocation,getAllFood,getAllOthers,insertComment};
+module.exports = {getAllLocationByTourId,getDetailsOfLocation,getCommentsOfLocation,getAllFood,getAllOthers,insertComment,getImagesOfLocation};

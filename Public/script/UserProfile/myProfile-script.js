@@ -31,6 +31,7 @@
   });
   */
 
+
  async function fetchMyProfile()
  {
     const response = await fetch('/fetchMyProfile');
@@ -52,4 +53,5 @@
  };
 
  fetchMyProfile();
-  
+
+

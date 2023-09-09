@@ -266,8 +266,10 @@ h2 {
     max-width: 50px; /* Adjust the maximum width to your desired size */
     max-height: 50px; /* Adjust the maximum height to your desired size */
     margin-top: 10px; /* Add spacing between the text and image */
+    border-radius: 50%;
   
 }
+
 
 .comment-input-container textarea {
   width: 100%;

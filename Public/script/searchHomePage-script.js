@@ -67,9 +67,10 @@ function scrollEventHandler() {
 
 
   if (isElementInViewport(packagesSection) && !packagesFetched) {
-   packagesFetched = false;
-    fetchTours();
-    packagesFetched = true;
+   
+    fetchFilteredTours();
+    packagesFetched=true;
+   
   }
 
   if (isElementInViewport(reviewSection) && !reviewsFetched) {
@@ -190,8 +191,6 @@ async function fetchAllGallery()
 }
 
 //-------for review-------//
-
-//function for fetching all reviews
 
 async function fetchAllReview()
 {
@@ -324,5 +323,65 @@ Wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
 Wrapper.addEventListener("mouseleave", autoPlay);
 
 }
+
+
+
+
+//explore ---search section
+
+////Search the packages---------------
+
+async function fetchFilteredTours() {
+
+  //const location = document.getElementById("locationInput").value;
+ // const date = document.getElementById("dateInput").value;
+
+
+  // Construct the URL with query parameters for location and date
+  const url = `/filteredPackages?location=${encodeURIComponent(location)}&date=${encodeURIComponent(date)}`;
+  
+  try {
+    const response = await fetch(url);
+    const tours = await response.json();
+
+    console.log("fetch e search er somoi:",tours);
+    
+    // Clear the existing packages in the list
+    const tourList = document.getElementById("tour-list");
+    tourList.innerHTML = "";
+
+    tours.forEach((tour) => {
+      const tourDiv = document.createElement('div');
+    tourDiv.classList.add('box');
+
+    //adding image src
+    const imageSrc = `/${tour.IMAGE_URL}`;
+
+    tourDiv.innerHTML = 
+    `<img src="${imageSrc}" alt="" />
+    <div class="content">
+      <h3><i class="fas fa-map-markar-alt"></i>"${tour.TOUR_NAME}"</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+
+      <div class="price $">"${tour.PRICE}"<span>$120.00</span></div>
+      
+      <a href="/packageDetails/${tour.TOUR_ID}" class="btn">Details</a>
+      <a href="/booking/${tour.TOUR_ID}" class="btn">Book Now</a>
+    </div>
+  `;
+   tourList.appendChild(tourDiv);
+
+    });
+  } catch (error) {
+    console.error("Error fetching filtered tours:", error);
+  }
+}
+
 
 

@@ -40,7 +40,7 @@ body {
   
 
 /* styles/food-style.css */
-
+/*
 .box {
     display: flex;
     align-items: center;
@@ -51,7 +51,25 @@ body {
     transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
     cursor: pointer;
   }
+  */
   
+  .box {
+    flex: 0 0 calc(50% - 1rem); /* Two boxes in a row with a gap */
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem; /* Adjust the margin between rows */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  .box img {
+    max-width: 100%;
+    height: auto;
+  }
+
+
   .box:hover {
     transform: scale(1.05);
     background-color: #f0f0f0;
@@ -93,3 +111,5 @@ body {
     text-decoration: underline;
   }
   
+
+
