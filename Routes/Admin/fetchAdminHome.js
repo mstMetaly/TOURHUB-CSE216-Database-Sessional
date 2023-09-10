@@ -80,4 +80,50 @@ router.get('/confirmCancelRequest/:booking_id',async(req,res)=>{
     }
 });
 
+
+//fetch faq request 
+router.get('/fetchFAQRequest' , async(req,res)=>{
+    if(req.admin == null)
+    {
+        res.redirect('/login');
+    }
+    else{
+
+        let faq = [];
+        faq = await adminHome_query.getAllFAQRequest();
+
+        if(faq == undefined)
+        {
+            console.log("router e faqRequest null");
+        }
+        else{
+            console.log("router e faqRequest:",faq);
+            return res.json(faq);
+        }
+
+    }
+});
+
+
+//fetch log request 
+router.get('/fetchLogRequest',async(req,res)=>{
+    if(req.admin == null)
+    {
+        res.redirect('/login');
+    }
+    else{
+        let result= [];
+        result = await adminHome_query.getAllLogRequest();
+
+        if(result == undefined)
+        {
+            console.log("router e faqRequest null");
+        }
+        else{
+            console.log("router e faqRequest:",result);
+            return res.json(result);
+        }
+    }
+});
+
 module.exports = router;

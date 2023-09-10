@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>TOURHUB</title>
-    <link rel="stylesheet" href="/styles/home-style.css" />
+    <link rel="stylesheet" href="/styles/searchHome-style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
@@ -124,12 +124,12 @@
 
 
     <!--FAQ section-->
+    <!--
     <section class="faq" id="faq">
         <div class="header">
             <h1 class="header-title">FAQ</h1>
             <p class="header-desc">Frequently Asked Questions</p>
             <div class="search">
-                <!--<button id="getSupportButton">Get Support</button>-->
                 <a href="/faq" class="button" id="getSupportButton">Get Support</a>
             </div>
         </div>
@@ -183,6 +183,119 @@
         </div>
 
     </section>
+-->
+<section class="faq" id="faq">
+    <div class="header">
+      <h1 class="heading">
+      <span>F</span>
+      <span>A</span>
+      <span>Q</span>
+      </h1>
+    </div>
+    <div class="faq-container">
+      <div class="faq-name">
+        <img class="faq-image" src="/image/faq_image/faq2.jpg" />
+        <div class="search">
+          <a href="/faq" class="button" id="getSupportButton">Get Support</a>
+        </div>
+      </div>
+      <div class="faq-box">
+        <div class="faq-wrapper">
+          <input type="checkbox" class="faq-trigger" id="faq-trigger-1" />
+          <label class="faq-title" for="faq-trigger-1"
+            >What qualities do u look for canditates?</label
+          >
+          <div class="faq-detail">
+            <p>
+              Tourism is a dynamic and multifaceted industry that plays a crucial
+              role in the global economy. It involves the movement of people from
+              one place to another for various purposes, such as leisure,
+              business, cultural exchange, and adventure. Tours can encompass a
+              wide range of experiences, from visiting famous landmarks and
+              natural wonders to exploring new cultures and cuisines.
+            </p>
+          </div>
+        </div>
+        <div class="faq-wrapper">
+          <input type="checkbox" class="faq-trigger" id="faq-trigger-2" />
+          <label class="faq-title" for="faq-trigger-2"
+            >How can I search for tours in the database?</label
+          >
+          <div class="faq-detail">
+            <p>
+              You can search for tours in the database using various criteria,
+              such as destination, duration, type of tour (e.g., adventure,
+              cultural), budget, and availability dates. Most tour databases
+              provide a user-friendly search interface to help you find the tours
+              that match your preferences.
+            </p>
+          </div>
+        </div>
+        <div class="faq-wrapper">
+          <input type="checkbox" class="faq-trigger" id="faq-trigger-3" />
+          <label class="faq-title" for="faq-trigger-3"
+            >Are the prices listed in the database inclusive of all costs?</label
+          >
+          <div class="faq-detail">
+            <p>
+              Prices listed in the database may vary. Some tours include all
+              costs, while others may have additional fees that are not included
+              in the initial price. It's essential to review the tour details and
+              terms to understand what is covered and what is not.
+            </p>
+          </div>
+        </div>
+        <div class="faq-wrapper">
+          <input type="checkbox" class="faq-trigger" id="faq-trigger-1" />
+          <label class="faq-title" for="faq-trigger-1"
+            >What qualities do u look for canditates?</label
+          >
+          <div class="faq-detail">
+            <p>
+              Tourism is a dynamic and multifaceted industry that plays a crucial
+              role in the global economy. It involves the movement of people from
+              one place to another for various purposes, such as leisure,
+              business, cultural exchange, and adventure. Tours can encompass a
+              wide range of experiences, from visiting famous landmarks and
+              natural wonders to exploring new cultures and cuisines.
+            </p>
+          </div>
+        </div>
+        <div class="faq-wrapper">
+          <input type="checkbox" class="faq-trigger" id="faq-trigger-1" />
+          <label class="faq-title" for="faq-trigger-1"
+            >What qualities do u look for canditates?</label
+          >
+          <div class="faq-detail">
+            <p>
+              Tourism is a dynamic and multifaceted industry that plays a crucial
+              role in the global economy. It involves the movement of people from
+              one place to another for various purposes, such as leisure,
+              business, cultural exchange, and adventure. Tours can encompass a
+              wide range of experiences, from visiting famous landmarks and
+              natural wonders to exploring new cultures and cuisines.
+            </p>
+          </div>
+        </div>
+        <div class="faq-wrapper">
+          <input type="checkbox" class="faq-trigger" id="faq-trigger-1" />
+          <label class="faq-title" for="faq-trigger-1"
+            >What qualities do u look for canditates?</label
+          >
+          <div class="faq-detail">
+            <p>
+              Tourism is a dynamic and multifaceted industry that plays a crucial
+              role in the global economy. It involves the movement of people from
+              one place to another for various purposes, such as leisure,
+              business, cultural exchange, and adventure. Tours can encompass a
+              wide range of experiences, from visiting famous landmarks and
+              natural wonders to exploring new cultures and cuisines.
+            </p>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </section>
 
     <!--Service Section-->
 
@@ -271,18 +384,17 @@
       </div>
       </section>
 
-
-
+      <script>
+        const locationUrl = '<%=location %>'; // Access location from template variabl
+         const dateUrl = `<%= date %>`; // Access date from template variable
+         console.log("Front end :",locationUrl, " date :",dateUrl); 
+      </script>
     <script src="/script/searchHomePage-script.js">
-         // const location = `<%= location %>`; // Access location from template variable
-         // const date = `<%= date %>`; // Access date from template variable  
-         
     </script>
+   
 
     <script>
-       // const location = `<%= location %>`; // Access location from template variable
-       // const date = `<%= date %>`; // Access date from template variable
-
+      
         const packageLink = document.getElementById("packageLink");
         packageLink.addEventListener("click", function (event) {
             event.preventDefault();

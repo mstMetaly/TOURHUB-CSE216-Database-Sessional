@@ -112,5 +112,57 @@ async function confirmCancelRequest(booking_id)
     }
 }
 
+//get all faq request 
+async function getAllFAQRequest()
+{
+    const connection = await connectToDatabase();
 
-module.exports = {admin_getAllUser,admin_getAllPackages,getAllCancelRequest,confirmCancelRequest};
+    try{
+        const selectSql = `SELECT * FROM FAQ ORDER BY TIME`;
+
+        let result = [];
+        result = await connection.execute(selectSql);
+
+        if(result.rows.length === 0)
+        {
+            return null;
+        }
+        else{
+            console.log("faq request query te",result.rows);
+            return result.rows;
+        }
+    
+    }catch(err)
+    {
+        console.log("faq query te error!",err);
+    }
+}
+
+//get all log request 
+async function getAllLogRequest()
+{
+    const connection = await connectToDatabase();
+
+    try{
+        const selectSql = `SELECT * FROM LOG_TABLE ORDER BY TIME`;
+
+        let result = [];
+        result = await connection.execute(selectSql);
+
+        if(result.rows.length === 0)
+        {
+            return null;
+        }
+        else{
+            console.log("log request query te",result.rows);
+            return result.rows;
+        }
+    }
+    catch(err)
+    {
+        console.log("log query te err",err);
+    }
+}
+
+
+module.exports = {admin_getAllUser,admin_getAllPackages,getAllCancelRequest,confirmCancelRequest,getAllFAQRequest,getAllLogRequest};

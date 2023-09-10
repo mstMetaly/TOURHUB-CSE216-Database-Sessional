@@ -140,6 +140,7 @@ body{
 
 .btn-container1 {
     text-align: left;
+    align-items: left;
 }
 
 .login-link,

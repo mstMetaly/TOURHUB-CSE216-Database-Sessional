@@ -68,9 +68,10 @@ function scrollEventHandler() {
 
   if (isElementInViewport(packagesSection) && !packagesFetched) {
    
-    const location ='sajek';
-    const date = null;
-    fetchFilteredTours(location,date);
+    //const location ='Sajek';
+   // const date = null;
+    console.log("fetch e call koar somoi:",locationUrl);
+    fetchFilteredTours(locationUrl,dateUrl);
     packagesFetched=true;
    
   }
@@ -104,14 +105,6 @@ window.addEventListener("scroll", scrollEventHandler);
 // Rest of my code...
 
 //------------
-
-registerLink.addEventListener("click", () => {
-  wrapper.classList.add("active");
-});
-
-loginLink.addEventListener("click", () => {
-  wrapper.classList.remove("active");
-});
 
 videoBtn.forEach((btn) => {
   btn.addEventListener("click", () => {

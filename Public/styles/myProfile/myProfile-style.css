@@ -8,6 +8,8 @@
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
+    align-items: center;
+    justify-content: center;
   }
   
   header {
@@ -53,6 +55,14 @@
     background-color: white;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
   }
+
+  .profile-info{
+    padding-left: 460px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:medium;
+    font-weight: 700;
+  }
+
   
   .profile-picture {
     display: flex;

@@ -35,10 +35,10 @@ router.get('/searchPage',(req,res)=>{
         console.log("searchPage router e location:",location , " date :",date);
         res.render('searchHomePage',
         {  
-            //location : location,
-           // date : date,
-            //errors:[]
-            location,date
+            location : location,
+           date : date,
+            errors:[]
+            //location,date
         });
     }
     

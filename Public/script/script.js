@@ -213,6 +213,7 @@ carousel.innerHTML = " ";
 data.forEach(item =>{
   const imageSrc = '/' + item.PROFILE_PIC;
   const card = document.createElement("li");
+
   card.classList.add("card");
   card.innerHTML = `
   <div class="img"><img src="${imageSrc}" alt="img" draggable="false"></div>

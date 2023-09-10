@@ -54,46 +54,15 @@ async function getAllReview() {
 
 ///get filtered packages 
 async function getFilteredPackages(location, date) {
-   // date = decodeURIComponent(req.query.date);
-   // location = decodeURIComponent(req.query.location);
-    console.log("getting location in function :",location ," date:",date);
+    // date = decodeURIComponent(req.query.date);
+    // location = decodeURIComponent(req.query.location);
+    console.log("getting location in function :", location, " date:", date);
     const connection = await connectToDatabase();
-
+    let result = [];
     try {
-            /*const selectSql = `SELECT * 
-            FROM PACKAGES P JOIN PACKAGE_IMAGE G 
-            ON P.TOUR_ID = G.TOUR_ID
-            WHERE LOWER(P.TOUR_NAME) LIKE '%sajek%'
-            `;
-    */
-        /*
-           const selectSql = `
-            SELECT *
-            FROM PACKAGES P JOIN PACKAGE_IMAGE I 
-            ON (P.TOUR_ID = I.TOUR_ID)
-            WHERE TOUR_NAME IN 
-            (SELECT TOUR_NAME
-            FROM PACKAGES 
-            WHERE LOWER(TOUR_NAME) LIKE ('%:location%')
-            )
-            
-            UNION
-            
-            SELECT *
-            FROM PACKAGES P JOIN PACKAGE_IMAGE I 
-            ON (P.TOUR_ID = I.TOUR_ID)
-            WHERE :date BETWEEN TO_CHAR(STARTDATE, 'DD-MM-YYYY') AND 
-             TO_CHAR(ENDDATE, 'DD-MM-YYYY')
-            `;
-        
-       
-        const selectBindings = {
-            location: location,
-            date : date
 
-        };*/
-    
-        const selectSql = `
+        if (date && location) {
+            const selectSql = `
         SELECT *
         FROM PACKAGES P JOIN PACKAGE_IMAGE I 
         ON (P.TOUR_ID = I.TOUR_ID)
@@ -102,43 +71,72 @@ async function getFilteredPackages(location, date) {
         FROM PACKAGES 
         WHERE LOWER(TOUR_NAME) LIKE LOWER('%' || :location || '%')
         )
+
+        
+        INTERSECT
+    
+        SELECT *
+        FROM PACKAGES P JOIN PACKAGE_IMAGE I 
+        ON (P.TOUR_ID = I.TOUR_ID)
+        WHERE TO_TIMESTAMP(:dateUrl, 'YYYY-MM-DD HH24:MI:SS')  BETWEEN SYSDATE AND P.ENDDATE
     `;
 
-    const selectBindings = {
-        location: location, // Add % around location if you want to perform a partial match
-        //date: date // No need to format date here, leave it as is
-    };
-
-    const result = await connection.execute(selectSql,selectBindings);
-
-    if (result.rows.length === 0) {
-        console.log("Found no packages filtered!");
-        return null;
-    }
-    else {
-        console.log("result for all search package:", result.rows);
-        return result.rows;
-    }
- 
 
 
-     }  catch (err) {
-        console.log("location : ",location ," ,date:",date);
+            const selectBindings = {
+                location: location, // Add % around location if you want to perform a partial match
+                dateUrl: date // No need to format date here, leave it as is
+            };
+            result.length = 0;
+            result = await connection.execute(selectSql, selectBindings);
+        }
+
+        else if (location) {
+            const selectSql = `
+            SELECT *
+            FROM PACKAGES P JOIN PACKAGE_IMAGE I 
+            ON (P.TOUR_ID = I.TOUR_ID)
+            WHERE TOUR_NAME IN 
+            (SELECT TOUR_NAME
+            FROM PACKAGES 
+            WHERE LOWER(TOUR_NAME) LIKE LOWER('%' || :location || '%')
+            )`;
+            const selectBindings = {
+                location: location, // Add % around location if you want to perform a partial match
+            };
+            result.length = 0;
+            result = await connection.execute(selectSql, selectBindings);
+
+        }
+        else if (date) {
+            const selectSql = ` SELECT *
+            FROM PACKAGES P JOIN PACKAGE_IMAGE I 
+            ON (P.TOUR_ID = I.TOUR_ID)
+            WHERE TO_TIMESTAMP(:dateUrl, 'YYYY-MM-DD HH24:MI:SS')  BETWEEN SYSDATE AND P.ENDDATE`;
+
+            const selectBindings = {
+                dateUrl: date// Add % around location if you want to perform a partial match
+            };
+            result.length = 0;
+            result = await connection.execute(selectSql, selectBindings);
+        }
+
+
+        if (result.rows.length === 0) {
+            console.log("Found no packages filtered!");
+            return null;
+        }
+        else {
+            console.log("result for all search package:", result.rows);
+            return result.rows;
+        }
+
+
+
+    } catch (err) {
+        console.log("location : ", location, " ,date:", date);
         console.log("Filtered packages query e error", err);
-    } 
-  
-    
-
-
-/*
-         UNION
-    
-    SELECT *
-    FROM PACKAGES P JOIN PACKAGE_IMAGE I 
-    ON (P.TOUR_ID = I.TOUR_ID)
-    WHERE TO_DATE(:date, 'DD-MM-YYYY') BETWEEN STARTDATE AND ENDDATE
-*/
-
+    }
 
 
 }
