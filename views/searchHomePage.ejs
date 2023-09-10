@@ -273,11 +273,15 @@
 
 
 
-    <script src="/script/searchHomePage-script.js"></script>
+    <script src="/script/searchHomePage-script.js">
+         // const location = `<%= location %>`; // Access location from template variable
+         // const date = `<%= date %>`; // Access date from template variable  
+         
+    </script>
 
     <script>
-        const location = `<%= location %>`; // Access location from template variable
-        const date = `<%= date %>`; // Access date from template variable
+       // const location = `<%= location %>`; // Access location from template variable
+       // const date = `<%= date %>`; // Access date from template variable
 
         const packageLink = document.getElementById("packageLink");
         packageLink.addEventListener("click", function (event) {

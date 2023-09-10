@@ -45,8 +45,9 @@ body {
 .box-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     gap: 2rem;
+
   }
   
   /* Individual box */
@@ -55,8 +56,9 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     border-radius: 8px;
-    width: calc(33.33% - 1rem); /* Adjust width based on your layout */
     transition: transform 0.2s ease-in-out;
+    align-items: center;
+    width: 60%;
   }
   
   .box:hover {

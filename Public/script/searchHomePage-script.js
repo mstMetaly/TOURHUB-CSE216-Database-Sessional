@@ -68,7 +68,9 @@ function scrollEventHandler() {
 
   if (isElementInViewport(packagesSection) && !packagesFetched) {
    
-    fetchFilteredTours();
+    const location ='sajek';
+    const date = null;
+    fetchFilteredTours(location,date);
     packagesFetched=true;
    
   }
@@ -329,13 +331,15 @@ Wrapper.addEventListener("mouseleave", autoPlay);
 
 //explore ---search section
 
-////Search the packages---------------
-
-async function fetchFilteredTours() {
+async function fetchFilteredTours(location,date) {
 
   //const location = document.getElementById("locationInput").value;
  // const date = document.getElementById("dateInput").value;
 
+    //const location = `<%= location %>`; // Access location from template variable
+    //const date = `<%= date %>`; // Access date from template variable
+
+    console.log("fetch filter tour function e:",location,"date:",date);
 
   // Construct the URL with query parameters for location and date
   const url = `/filteredPackages?location=${encodeURIComponent(location)}&date=${encodeURIComponent(date)}`;

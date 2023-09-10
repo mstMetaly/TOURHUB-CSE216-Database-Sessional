@@ -92,43 +92,54 @@ async function getFilteredPackages(location, date) {
             date : date
 
         };*/
-    const selectSql = `
-    SELECT *
-    FROM PACKAGES P JOIN PACKAGE_IMAGE I 
-    ON (P.TOUR_ID = I.TOUR_ID)
-    WHERE TOUR_NAME IN 
-    (SELECT TOUR_NAME
-    FROM PACKAGES 
-    WHERE LOWER(TOUR_NAME) LIKE :location
-    )
     
-    UNION
+        const selectSql = `
+        SELECT *
+        FROM PACKAGES P JOIN PACKAGE_IMAGE I 
+        ON (P.TOUR_ID = I.TOUR_ID)
+        WHERE TOUR_NAME IN 
+        (SELECT TOUR_NAME
+        FROM PACKAGES 
+        WHERE LOWER(TOUR_NAME) LIKE LOWER('%' || :location || '%')
+        )
+    `;
+
+    const selectBindings = {
+        location: location, // Add % around location if you want to perform a partial match
+        //date: date // No need to format date here, leave it as is
+    };
+
+    const result = await connection.execute(selectSql,selectBindings);
+
+    if (result.rows.length === 0) {
+        console.log("Found no packages filtered!");
+        return null;
+    }
+    else {
+        console.log("result for all search package:", result.rows);
+        return result.rows;
+    }
+ 
+
+
+     }  catch (err) {
+        console.log("location : ",location ," ,date:",date);
+        console.log("Filtered packages query e error", err);
+    } 
+  
+    
+
+
+/*
+         UNION
     
     SELECT *
     FROM PACKAGES P JOIN PACKAGE_IMAGE I 
     ON (P.TOUR_ID = I.TOUR_ID)
     WHERE TO_DATE(:date, 'DD-MM-YYYY') BETWEEN STARTDATE AND ENDDATE
-`;
-const selectBindings = {
-    location: `%${location}%`, // Add % around location if you want to perform a partial match
-    date: date // No need to format date here, leave it as is
-};
+*/
 
 
-        const result = await connection.execute(selectSql,selectBindings);
-
-        if (result.rows.length === 0) {
-            console.log("Found no packages filtered!");
-            return null;
-        }
-        else {
-            console.log("result for all search package:", result.rows);
-            return result.rows;
-        }
-    } catch (err) {
-        console.log("location : ",location ," ,date:",date);
-        console.log("Filtered packages e error", err);
-    }
 
 }
 
