@@ -7,7 +7,7 @@ async function getAllPackages() {
     const connection = await connectToDatabase();
 
     try {
-        const selectSql = `SELECT * FROM PACKAGES P JOIN PACKAGE_IMAGE G ON P.TOUR_ID = G.TOUR_ID`;
+        const selectSql = `SELECT * FROM PACKAGES P JOIN PACKAGE_IMAGE G ON P.TOUR_ID = G.TOUR_ID WHERE STARTDATE > SYSDATE`;
 
         const result = await connection.execute(selectSql);
 

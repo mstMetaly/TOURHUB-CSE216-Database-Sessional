@@ -165,4 +165,22 @@ async function getAllLogRequest()
 }
 
 
-module.exports = {admin_getAllUser,admin_getAllPackages,getAllCancelRequest,confirmCancelRequest,getAllFAQRequest,getAllLogRequest};
+//delete Package 
+async function deletePackage(tourId)
+{
+    const connection = await connectToDatabase();
+
+    try{
+        const deleteSql =  `
+        DELETE FROM PACKAGES WHERE TOUR_ID = :tourId`;
+        const deleteBindings = {tourId};
+        await connection.execute(deleteSql,deleteBindings);
+        await connection.commit();
+    }
+    catch(err)
+    {
+        console.log("delete package query te error!");
+    }
+}
+
+module.exports = {admin_getAllUser,admin_getAllPackages,getAllCancelRequest,confirmCancelRequest,getAllFAQRequest,getAllLogRequest,deletePackage};

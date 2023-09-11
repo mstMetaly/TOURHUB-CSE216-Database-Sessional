@@ -157,3 +157,15 @@ body{
     text-decoration: underline; /* Add underline on hover for better visibility */
 }
 
+.tourhub {
+    position: absolute;
+    left: 100px; /* Adjust the left position as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 5rem; /* Adjust the font size as needed */
+    font-weight: bold;
+    color: #ffffff; /* Adjust the text color as needed */
+    font-family: "Lora", serif;
+    font-variation-settings: "wght" 1000;
+  }
+  @import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap");

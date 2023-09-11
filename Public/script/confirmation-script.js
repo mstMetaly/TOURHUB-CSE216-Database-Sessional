@@ -16,8 +16,7 @@ async function fetchConfirmation() {
         <h2>Booking Confirmation</h2>
         <p>Booking ID: ${confirmInfo.BOOKING_ID}</p>
         <p>Name: ${confirmInfo.FULL_NAME}</p>
-        <p>Hotel Id: ${confirmInfo.HOTEL_ID}</p>
-        <p>PAYMENT ID: ${confirmInfo.PAYMENT_ID}</p>
+        <p>PAYMENT ID: ${confirmInfo.TRANSACTION_NO}</p>
         <!-- Add more data as needed -->
         <div class="download-button">
             <a href="/download/${confirmInfo.BOOKING_ID}" class="btn">Download Booking Info</a>

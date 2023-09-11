@@ -1,6 +1,7 @@
 const oracledb = require('oracledb');
 
 const { connectToDatabase } = require('./databaseConnect');
+const { fillAndStroke } = require('pdfkit');
 
 
 async function insertIntoPackages(tourId, tourName, price, startDate, endDate, totalDay, relativeFilePath) {
@@ -275,11 +276,43 @@ async function insertInstructions(tourId, transportDetails, instructions, cautio
 
 }
 
+//update package ---
+async function  updateIntoPackages(tourId,tourName,price,startDate,endDate,totalDay)
+{
+    const connection = await connectToDatabase();
+    try{
+        
+        const updateSql = `UPDATE PACKAGES SET TOUR_NAME = :tourName,
+        PRICE = :price,
+        STARTDATE = TO_DATE(:startDate, 'YYYY-MM-DD'),
+        ENDDATE = TO_DATE(:endDate, 'YYYY-MM-DD'),
+        TOTALDAY = :totalDay 
+        WHERE TOUR_ID= :tourId`;
+
+        const updateBindings = {
+            tourId : tourId,
+            tourName : tourName,
+            price : price,
+            startDate : startDate,
+            endDate : endDate,
+            totalDay : totalDay,
+        };
+
+        await connection.execute(updateSql,updateBindings);
+        await connection.commit();
+    }
+    catch(err)
+    {
+        console.log("update query te error!",err);
+    }
+
+}
 
 module.exports = {
     insertIntoPackages, insertFoodImage,
     insertLocation, insertLocationDetails,
     insertLocationDetailsImage,
     insertHotel, insertHotelRoom,
-    insertInstructions
+    insertInstructions,
+    updateIntoPackages
 };

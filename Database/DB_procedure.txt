@@ -23,3 +23,48 @@ CREATE OR REPLACE PROCEDURE BOOKING_INSERTION
         COMMIT;
         END;
         /
+
+
+ CREATE OR REPLACE PROCEDURE INSERT_PACKAGE_IMAGE (
+          p_tour_id IN NUMBER,
+          p_image_url IN VARCHAR2
+        ) IS
+        BEGIN
+        INSERT INTO PACKAGE_IMAGE(TOUR_ID , IMAGE_URL)
+          VALUES (p_tour_id, p_image_url);
+          COMMIT;
+        END;
+
+ CREATE OR REPLACE PROCEDURE INSERT_LOCATION_IMAGE (
+          p_location_id IN NUMBER,
+          p_image_url IN VARCHAR2
+        ) IS
+        BEGIN
+          INSERT INTO LOCATION_IMAGE(IMAGE_URL,LOCATION_ID)
+          VALUES (p_image_url,p_location_id);
+          COMMIT;
+        END;
+
+ CREATE OR REPLACE PROCEDURE INSERT_HOTEL_IMAGE (
+        p_hotel_id IN NUMBER,
+        p_image_url IN VARCHAR2
+      ) IS
+      BEGIN
+        INSERT INTO HOTEL_IMAGE (HOTEL_ID, IMAGE_URL)
+        VALUES (p_hotel_id, p_image_url);
+        COMMIT;
+      END;
+
+  CREATE OR REPLACE PROCEDURE INSERT_HOTEL_ROOM (
+          p_hotel_id IN NUMBER,
+          p_roomNo IN NUMBER,
+          p_image_url IN VARCHAR2,
+          p_roomDetails IN VARCHAR2
+
+        ) IS
+        BEGIN
+          INSERT INTO HOTEL_ROOM (HOTEL_ID,ROOM_NO,ROOM_IMAGE,ROOM_DETAILS)
+          VALUES (p_hotel_id,p_roomNo, p_image_url,p_roomDetails);
+          COMMIT;
+        END;
+

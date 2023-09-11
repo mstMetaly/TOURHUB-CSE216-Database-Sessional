@@ -19,6 +19,7 @@ async function fetchLocations(tourId)
     `<img src="${imageSrc}" alt="" />
     <div class="content">
       <h3><i class="fas fa-map-markar-alt"></i>"${location.LOCATION_NAME}"</h3>
+      <h2>Day : ${location.DAY}</h2>
         <div class="stars">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>

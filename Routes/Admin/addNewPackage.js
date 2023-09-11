@@ -73,5 +73,31 @@ router.post('/addInstructions',async(req,res)=>{
     }
 });
 
+//update package  post request 
+router.post('/updatePackageConfirm/:tourId' ,(req, res) => {
+    // Retrieve the tourId from the request parameters
+    const tourId = req.params.tourId;
+
+   // const relativeFilePath = path.relative('Public', req.file.path);
+    const formData = req.body;
+    const tourName= formData.tourName;
+    const price = formData.price;
+    const startDate = formData.startDate;
+    const endDate = formData.endDate;
+    const totalDay = formData.totalDay;
+
+    console.log("router e all info :","tourId",tourId,"name:",tourName," price :",price, " startDate :",startDate, "ebdDate:",endDate,"totalday:",totalDay);
+
+    try{
+        addPackage_query.updateIntoPackages(tourId,tourName,price,startDate,endDate,totalDay);
+        res.status(200).json({ message: 'Package updated successfully.' });
+    }
+    catch(err)
+    {
+        console.log("update pack router e error",err);
+    }
+    
+});
+
 
 module.exports = router;

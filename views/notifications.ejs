@@ -6,19 +6,19 @@
     <title>Booking Details</title>
     <style>
       /* Style for each cancel request box */
+/*
 .box {
   background-color: white;
   border: 1px solid #ddd;
   padding: 1rem;
-  margin-bottom: 1rem; /* Add margin between each request */
+  margin-bottom: 1rem; 
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Style for the 'Confirm' button */
 .btn {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: #007bff; /* Change to your desired button color */
+  background-color: #007bff;
   color: white;
   text-decoration: none;
   border: none;
@@ -28,10 +28,195 @@
 }
 
 .btn:hover {
-  background-color: #0056b3; /* Change to your desired button hover color */
+  background-color: #0056b3;
 }
 
-/* Add more styles as needed */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cancel-request,
+.faq-request {
+  width: 850px;
+  max-width: 100%;
+  height: auto;
+  margin: 30px auto;
+}
+*/
+/*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color: #555;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }*/
+  
+
+  /* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color: #555;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+ 
+  .faq-request {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+
+  
+  .box {
+    flex: 0 0 calc(50% - 1rem); 
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  .box img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .box h3 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .box .stars {
+    margin-top: 0.5rem;
+    color: #f39c12; 
+  }
+  
+  .box .price {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .box h2 {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .box .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .box .btn:hover {
+    background-color: #555;
+  }
+
+  .cancel-details,
+  .faq-details,
+  .log-details{
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+    justify-content: center;
+    text-align: center;
+    width: 850px;
+    align-items: center;
+    margin-left: 350px;
+  }
+  h3{
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+
+  
 
 
     </style>
@@ -39,7 +224,7 @@
   </head>
   <body>
     <h3>All Cancel Request</h3>
-    <div class="booking-details" id="cancel-request">
+    <div class="cancel-details" id="cancel-request">
     </div>
     <h3>All FAQ</h3>
     <div class="faq-details" id="faq-request"></div>
@@ -48,3 +233,5 @@
     <script src="/script/notification-script.js"></script>
   </body>
 </html>
+
+

@@ -1,0 +1,110 @@
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+  }
+  
+  .admin-nav {
+    background-color: #444;
+    color: white;
+  }
+  
+  .admin-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 1em 0;
+  }
+  
+  .admin-nav li {
+    margin: 0 1em;
+  }
+  
+  .admin-nav a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s, background-color 0.3s; /* Add transition for background color */
+    padding: 0.5em 1em; /* Add padding for clickable area */
+  }
+  
+  .admin-nav a:hover,
+  .admin-nav a.active { /* Add styles for both hover and active states */
+    color: #f5f5f5;
+    background-color: #555;
+  }
+  
+  .main-content {
+    padding: 2em;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #333;
+    color: white;
+  }
+
+.pack-card {
+    flex: 0 0 calc(33.33% - 1rem); /* Three cards in a row with a gap */
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem; /* Adjust the margin between rows */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 850px;
+    margin-left: 300px;
+    margin-right: 300px;
+    background-color: rgb(216, 215, 214);
+   
+
+  }
+
+  .pack-card h3 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .pack-card p {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  .pack-card .btn-container {
+    margin-top: 1rem;
+    align-items: center;
+  }
+
+  .pack-card .delete-btn ,.pack-card .update-btn{
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  .pack-card .update-btn{
+    margin-left: 330px;
+  }
+
+  .pack-card .update-btn:hover,
+  .pack-card .delete-btn:hover {
+    background-color: #555;
+  }
+
+
+
+
+

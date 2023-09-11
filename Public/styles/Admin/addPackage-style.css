@@ -2,6 +2,7 @@ body {
     background-color: #ffffff;
     padding: 10px;
     font-family: "Montserrat", sans-serif;
+    background-color:  rgb(216, 215, 214);;
   }
   
   .wrapper {
@@ -11,6 +12,7 @@ body {
     background-color: #ffffff; /* White background */
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
     padding: 20px;
+    border-radius: 10px;
   }
   
   .title {
@@ -26,6 +28,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+   
   }
   
   .inputfield {

@@ -29,7 +29,6 @@ async function fetchFood(tourId)
         </div>
 
       <h2>"${food.FOOD_DESCRIPTION}" </h2>
-      <a href="/SeeMoreDetails/${food.FOOD_NAME}" class="see-more-link">See More</a>
       
     </div>
   `;

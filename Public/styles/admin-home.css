@@ -58,12 +58,18 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li {
   /*CSS for see all user info */
 
   .user-card {
+    padding-top: 1rem;
     background-color: #f4f4f4;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     transition: transform 0.2s ease-in-out;
+    text-align: center;
+    width: 850;
+    margin-left: 300px;
+    margin-right: 300px;
+    background-color:  rgb(216, 215, 214);
   }
   
   .user-card:hover {

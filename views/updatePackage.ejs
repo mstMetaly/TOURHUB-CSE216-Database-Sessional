@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Tour</title>
+    <link rel="stylesheet" href="/styles/Admin/addPackage-style.css" />
+  </head>
+  <body>
+
+   
+    <div class="wrapper">
+      <div class="title">PACKAGES</div>
+      <form id="update-form" action="/updatePackageConfirm/<%= tourId %>" method="POST">
+      <div class="form">
+        <div class="inputfield">
+          <label>TOUR_NAME</label>
+          <input type="text" name="tourName" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>Price</label>
+          <input type="text" name="price" class="input" />
+        </div>
+        <div class="inputfield">
+            <label>StartDate (YYYY-MM-DD)</label>
+          <input type="text" name="startDate" class="input" />
+        </div>
+        <div class="inputfield">
+            <label>EndDate (YYYY-MM-DD)</label>
+          <input type="text" name="endDate" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>totalDay</label>
+          <input type="text" name="totalDay" class="input" />
+        </div>
+        <div class="inputfield">
+          <input type="submit" value="Insert" class="btn" />
+        </div>
+      </div>
+      </form>
+    </div>
+
+    <script>
+          const updateForm = document.getElementById('update-form');
+  
+  updateForm.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Check if any input fields are empty
+    const inputs = updateForm.querySelectorAll('input');
+    let isEmpty = false;
+    inputs.forEach((input) => {
+      if (input.value.trim() === '') {
+        isEmpty = true;
+      }
+    });
+
+    if (isEmpty) {
+      alert('Please fill in all fields.');
+    } else {
+      const confirmUpdate = confirm('Are you sure you want to update this package?');
+
+      if (confirmUpdate) {
+        // Proceed with form submission
+        updateForm.submit();
+      }
+    }
+  });
+      </script>
+
+  </body>
+</html>

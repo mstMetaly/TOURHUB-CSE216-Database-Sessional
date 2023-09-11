@@ -126,4 +126,36 @@ router.get('/fetchLogRequest',async(req,res)=>{
     }
 });
 
+//delete Package router 
+router.delete('/deletePackage/:tourId', (req, res) => {
+    if(req.admin == null)
+    {
+        res.redirect('/login');
+    }
+    else{
+        const tourId = req.params.tourId;
+
+        // Find the package with the specified TOUR_ID and remove it
+        adminHome_query.deletePackage(tourId);
+       
+        res.status(200).json({ message: 'Package deleted successfully.' });
+       
+    }
+   
+});
+
+
+//update package 
+router.get('/updatePackage/:tourId', async(req,res)=>{
+    if(req.admin == null)
+    {
+        res.redirect('/login');
+    }
+    else{
+        console.log("in update router");
+        const tourId = req.params.tourId;
+        res.render('updatePackage',{tourId});
+    }
+});
+
 module.exports = router;

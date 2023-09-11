@@ -166,8 +166,12 @@ async function fetchAllGallery()
 {
   const response = await fetch('/fetchGallery');
   const gallery = await response.json();
+  let count = 0;
+  if(count > 12)
+  return;
 
   gallery.forEach(element=>{
+  
     const galleryList = document.getElementById("gallery-list");
     const galleryDiv = document.createElement('div');
     galleryDiv.classList.add('box');
