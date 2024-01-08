@@ -149,6 +149,7 @@ async function fetchTours()
         </div>
 
       <div class="price $">"${tour.PRICE}"<span>$120.00</span></div>
+    
       
       <a href="/packageDetails/${tour.TOUR_ID}" class="btn">Details</a>
       <a href="/booking/${tour.TOUR_ID}" class="btn">Book Now</a>

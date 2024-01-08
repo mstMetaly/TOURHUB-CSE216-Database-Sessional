@@ -96,7 +96,14 @@ router.post('/updateProfile',async(req,res)=>{
         const gender = formData.gender;
         const nationality = formData.nationality;
 
-       // const selectSql = `UPDATE USER_PROFILE_INFO SET :username,:email,:nid,:address,:gender,:nationality `;
+        //check user_name and email whether already exists or not
+        //const user = await users_query.getUserByUsername(user_name);
+
+        //if (user== undefined) {
+          //const user = await users_query.getUserByEmail(email);
+          //if (user == undefined) {
+
+          // const selectSql = `UPDATE USER_PROFILE_INFO SET :username,:email,:nid,:address,:gender,:nationality `;
         const selectSql = `UPDATE USER_PROFILE_INFO SET USER_NAME = :user_name, GMAIL = :email, NID = :nid, ADDRESS = :address, GENDER = :gender, NATIONALITY = :nationality WHERE USER_ID = :user_id`;
 
         const selectBindings = {
@@ -110,7 +117,17 @@ router.post('/updateProfile',async(req,res)=>{
         };
 
         await myProfile_query.updateMyProfile(selectSql,selectBindings);
-        res.redirect('/myProfile');
+        //res.redirect('/myProfile');
+        res.redirect('/update-profile');
+          /*}
+          else{
+            res.status(400).json({ message: 'Email already exists' });
+          }
+
+        }
+        else{
+            res.status(400).json({ message: 'User_name already exists' });
+        }*/
     }
 });
 
@@ -171,8 +188,8 @@ router.get('/cancelRequest/:booking_id',async(req,res)=>{
         res.redirect('/login');
     }
     else{
-       const booking_id = req.params.booking_id;
        try{
+        const booking_id = req.params.booking_id;
         await myProfile_query.insertCancelRequest(req.user.user_id,booking_id);
         res.redirect('/current-tour');
        }

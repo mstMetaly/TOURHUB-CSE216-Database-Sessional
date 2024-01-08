@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Package Details</title>
+  <link rel="stylesheet" href="/styles/room-style.css">
+</head>
+<body>
+  <header>
+    <h1>HOTEL-MOTEL-ROOM</h1>
+  </header>
+  
+  <main>
+    <section class="all-location" id="all-location">
+      <h1 class="heading">
+        <span>R</span>
+        <span>O</span>
+        <span>O</span>
+        <span>M</span>
+      </h1>
+    <div class="box-container" id="room-list">
+      <!-- Package details content here -->
+    </div>
+    </section>
+  </main>
+
+  <!-- Passing the tourId as a JavaScript variable in the scriptForDetails.js file -->
+  <script>
+    var hotel_id = "<%= hotel_id %>";
+  </script>
+
+  <script src="/script/room-script.js"></script>
+
+</body>
+</html>

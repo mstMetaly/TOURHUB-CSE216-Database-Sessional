@@ -4,9 +4,11 @@ async function fetchSeeAllPackages() {
 
   const packListDiv = document.getElementById("tour-list");
 
+
   result.forEach(pack => {
       const packCard = document.createElement('div');
       packCard.classList.add('pack-card');
+
       packCard.innerHTML = `
             <h3>${pack.TOUR_ID}</h3>
             <h3>${pack.TOUR_NAME}</h3>

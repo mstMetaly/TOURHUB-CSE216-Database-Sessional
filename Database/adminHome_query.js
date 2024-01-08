@@ -35,7 +35,7 @@ async function admin_getAllPackages()
 {
     const connection = await connectToDatabase();
     try{
-        const selectSql = `SELECT * FROM PACKAGES`;
+        const selectSql = `SELECT * FROM PACKAGES P JOIN PACKAGE_IMAGE G ON P.TOUR_ID = G.TOUR_ID`;
         
         const result = await connection.execute(selectSql);
 

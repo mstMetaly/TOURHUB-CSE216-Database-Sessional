@@ -36,79 +36,59 @@
           <input type="number" id="phone_no" name="phone_no" placeholder="Enter the contact number" />
         </div>
         <div class="inputBox">
-          <div class="male">
-            <h3>How Many(Male)</h3>
-            <input type="number" id="male_count" name="male_count" placeholder="Enter number of male guests" />
-          </div>
-          <div class="female">
-            <h3>How Many(Female)</h3>
-            <input type="number" id="female_count" name="female_count" placeholder="Enter number of female guests" />
-          </div>
-          <div class="child">
-            <h3>How Many(Children)</h3>
-            <input type="number" id="child_count" name="child_count" placeholder="Enter number of Children guests" />
-          </div>
-
-          <div class="inputBox">
-            <h3>Bkash Number</h3>
-            <input type="number" id="bkash_no" name="bkash_no" placeholder="Enter the bkash number from where you have sent money" />
-          </div>
-          <div class="paymentId">
-            <h3>Transaction Number</h3>
-            <input type="text" id="paymentId" name="transactionNo" placeholder="Enter your Bkash Transaction Number" />
-          </div>
-          <div class="paymentDate">
-            <h3>Payment Date</h3>
-            <input type="text" id="paymentDate" name="paymentDate" placeholder="Enter Payment Date" />
-          </div>
-          <div class="paymentId">
-            <h3>Total Amount</h3>
-            <input type="number" id="totalAmount" name="totalAmount" placeholder="Enter Total Amount" />
-          </div>
-
+          <h3>Total Member</h3>
+          <input type="number" id="total_count" name="total_count" placeholder="Enter total member" />
+        </div>
+        <div class="inputBox">
+          <h3>Total Amount</h3>
+          <input type="number" id="total_amount" name="total_amount" placeholder="Enter total amount" />
         </div>
 
         <div class="button-container">
           <!-- Change the button type to "button" -->
           <button class="btn" id="confirmButton">Confirm</button>
         </div>
-      </form>
+
+
+    </div>
+
+    </form>
     </div>
   </section>
 
   <script>
 
-  // Get the "Confirm" button element
-  const confirmButton = document.getElementById('confirmButton');
+    // Get the "Confirm" button element
+    const confirmButton = document.getElementById('confirmButton');
 
-  // Add a click event listener to the "Confirm" button
-  confirmButton.addEventListener('click', (event) => {
-    // Show a confirmation dialog
-    const confirmed = confirm('Are you sure to confirm?');
+    // Add a click event listener to the "Confirm" button
+    confirmButton.addEventListener('click', (event) => {
+      // Show a confirmation dialog
+      const confirmed = confirm('Are you sure to confirm?');
 
-    // If the user clicks "OK" in the confirmation dialog
-    if (confirmed) {
-      const inputElements = document.querySelectorAll('input');
+      // If the user clicks "OK" in the confirmation dialog
+      if (confirmed) {
+        const inputElements = document.querySelectorAll('input');
 
-      // Check if any input field is empty
-      const isEmpty = [...inputElements].some((input) => !input.value.trim());
+        // Check if any input field is empty
+        const isEmpty = [...inputElements].some((input) => !input.value.trim());
 
-      // Get the values of maleCount and femaleCount
-      const maleCount = parseInt(document.getElementById('male_count').value);
-      const femaleCount = parseInt(document.getElementById('female_count').value);
+        // Get the values of maleCount and femaleCount
+        const maleCount = parseInt(document.getElementById('male_count').value);
+        const femaleCount = parseInt(document.getElementById('female_count').value);
 
-      if (isEmpty || (maleCount === 0 && femaleCount === 0)) {
-        // Display an error message
-        alert('Please fill in all fields and ensure that at least one guest (male or female) is selected.');
-        // Prevent the form from submitting
+        if (isEmpty || (maleCount === 0 && femaleCount === 0)) {
+          // Display an error message
+          alert('Please fill in all fields and ensure that at least one guest (male or female) is selected.');
+          // Prevent the form from submitting
+          event.preventDefault();
+        }
+        // If all conditions are met, the form will be submitted as usual
+      } else {
+        // If the user clicks "Cancel" or closes the dialog, do nothing
         event.preventDefault();
       }
-      // If all conditions are met, the form will be submitted as usual
-    } else {
-      // If the user clicks "Cancel" or closes the dialog, do nothing
-      event.preventDefault();
-    }
-  });
+    });
 
 
 

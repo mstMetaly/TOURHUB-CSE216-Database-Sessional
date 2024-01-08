@@ -66,7 +66,6 @@ async function fetchCancelRequest() {
       logDiv.innerHTML = `
        <h2>Name : ${user.USER_NAME} </h2>
        <h2>QUESTION :  ${user.ACTIVITY}</h2>
-       <h2>TIME :  ${user.TIME}</h2>
       `;
   
       logList.appendChild(logDiv);

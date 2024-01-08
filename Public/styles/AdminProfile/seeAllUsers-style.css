@@ -1,0 +1,113 @@
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+  }
+  
+  .admin-nav {
+    background-color: #444;
+    color: white;
+  }
+  
+  .admin-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 1em 0;
+  }
+  
+  .admin-nav li {
+    margin: 0 1em;
+  }
+  
+  .admin-nav a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s, background-color 0.3s; /* Add transition for background color */
+    padding: 0.5em 1em; /* Add padding for clickable area */
+  }
+  
+  .admin-nav a:hover,
+  .admin-nav a.active { /* Add styles for both hover and active states */
+    color: #f5f5f5;
+    background-color: #555;
+  }
+  
+  .main-content {
+    padding: 2em;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #333;
+    color: white;
+  }
+
+  /*CSS for see all user info */
+
+  .user-card {
+    padding-top: 1rem;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+    width: 850;
+    margin-left: 300px;
+    margin-right: 300px;
+    background-color:  rgb(216, 215, 214);
+  }
+  
+  .user-card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* css for seeAllPackages in admin home page*/
+  /* Inside your admin-home.css */
+
+.pack-card {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.pack-card:hover {
+  transform: scale(1.05);
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.update-btn, .delete-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.update-btn:hover, .delete-btn:hover {
+  background-color: #2980b9;
+}

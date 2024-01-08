@@ -1,40 +1,49 @@
-const oracledb = require('oracledb');
 
 const { connectToDatabase } = require('../Database/databaseConnect');
 
 
 //function for insertion in BookingInfo table and others 3 table
-async function insertBookingInfo(bookingId, user_id, full_name, phone_no, maleCount, femaleCount, childCount, totalCount, transactionNo, bkash_no, paymentDate, totalAmount, tourId) {
+async function insertBookingInfo(bookingId, user_id, full_name, phone_no, totalCount, totalAmount, tourId) {
     const connection = await connectToDatabase();
     try {
-        const insertSql = `INSERT INTO BOOKING_INFO(BOOKING_ID,USER_ID,FULL_NAME,PHONE_NO,MALE_COUNT,FEMALE_COUNT,CHILD_COUNT,TOTAL_COUNT,TRANSACTION_NO)
-        VALUES(:bookingId,:user_id,:full_name,:phone_no,:maleCount,:femaleCount,:childCount,:totalCount,:transactionNo)`;
-        const insertBindings = { bookingId, user_id, full_name, phone_no, maleCount, femaleCount, childCount, totalCount, transactionNo };
+        const insertSql = `INSERT INTO BOOKING_INFO(BOOKING_ID,USER_ID,FULL_NAME,PHONE_NO,TOTAL_COUNT,TOTAL_AMOUNT,TOUR_ID)
+        VALUES(:bookingId,:user_id,:full_name,:phone_no,:totalCount,:totalAmount,:tourId)`;
+        const insertBindings = { bookingId, user_id, full_name, phone_no,totalCount,totalAmount,tourId};
 
         await connection.execute(insertSql, insertBindings);
         await connection.commit();
 
-        let p_time = paymentDate;
+        //let p_time = paymentDate;
 
-        console.log("all data:");
-        console.log(user_id, bookingId, transactionNo, bkash_no,paymentDate,totalAmount,p_time,tourId);
+        //console.log("all data:");
+       // console.log(user_id, bookingId, transactionNo, bkash_no,paymentDate,totalAmount,p_time,tourId);
 
-       
+       const insertSql2 = `INSERT INTO TOUR_HISTORY(USER_ID, TOUR_ID, BOOKING_ID) VALUES(:user_id, :tour_id, :booking_id)`;
+       const insertBindings2 = { 
+        user_id: user_id, 
+        tour_id: tourId,
+         booking_id: bookingId 
+        };
 
-        await connection.execute(
+
+       console.log("Before executing TOUR_HISTORY insert query");
+       await connection.execute(insertSql2, insertBindings2);
+       await connection.commit();
+       console.log("after executing TOUR_HISTORY insert query");
+
+      /*await connection.execute(
             `BEGIN
             BOOKING_INSERTION (
                 :user_id,
                 :bookingId,
-                :transactionNo,
-                :bkash_no,
                 :totalAmount,
                 :tourId);
             END;`,
             {
-                user_id, bookingId, transactionNo, bkash_no,totalAmount,tourId
+                user_id, bookingId,totalAmount,tourId
             }
         );
+        await connection.commit();*/
 
     }
     catch (err) {
@@ -46,7 +55,6 @@ async function insertBookingInfo(bookingId, user_id, full_name, phone_no, maleCo
 
 //function for getting bookingInfo
 async function getBookingInfo(bookingId) {
-    const connection = await connectToDatabase();
 
     try {
         const connection = await connectToDatabase();

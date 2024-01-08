@@ -122,6 +122,25 @@ async function insertCancelRequest(user_id,booking_id){
 
         await connection.execute(insertSql,insertBindings);
         await connection.commit();
+
+        const cancel_status = 1;
+
+        const updateSql = `
+        UPDATE TOUR_HISTORY
+        SET CANCEL_STATUS = :cancel_status
+        WHERE BOOKING_ID = :booking_id
+      `;
+      
+      const updateBindings = {
+        cancel_status: cancel_status,
+        booking_id: booking_id
+      };
+      
+      console.log("Before cancel execute");
+      await connection.execute(updateSql, updateBindings);
+      await connection.commit();
+      console.log("after cancel  execute");
+      
     }
     catch(err)
     {

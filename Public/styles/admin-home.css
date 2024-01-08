@@ -6,6 +6,8 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li {
   body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
+    background-image: url('/front.jpg');
+    background-size: cover;
   }
   
   header {

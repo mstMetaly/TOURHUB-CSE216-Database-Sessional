@@ -1,6 +1,13 @@
 const express = require('express');
 const pdfkit = require('pdfkit');
 
+//payment gateway
+
+const SSLCommerzPayment = require('sslcommerz-lts');
+const store_id = 'proje6543e05e06bbd';
+const store_passwd = 'proje6543e05e06bbd@ssl';
+const is_live = false; //true for live, false for sandbox
+
 //importing confirmBooking_query
 const confirmBooking_query = require('../../Database/confirmBooking_query');
 
@@ -19,10 +26,77 @@ router.get('/booking/:tourId', async (req, res) => {
 });
 
 
+//sslcommerz init
+router.post('/confirmBooking/:tourId', (req, res) => {
+    const tourId = req.params.tourId;
+    const full_name = req.body.full_name;
+    const phone_no = req.body.phone_no;
+    const totalCount = req.body.total_count;
+    const totalAmount = parseInt(req.body.total_amount);
+
+    console.log("ssl e total count:",totalCount , "  total amount:",totalAmount);
+
+    const data = {
+        total_amount: req.body.total_amount,
+        currency: 'BDT',
+        tran_id: 'REF123', // use unique tran_id for each api call
+        success_url: `http://localhost:3000/success/${tourId}?full_name=${full_name}&phone_no=${phone_no}&totalCount=${totalCount}&totalAmount=${totalAmount}`,
+        fail_url: 'http://localhost:3000/fail',
+        cancel_url: 'http://localhost:3000/cancel',
+        ipn_url: 'http://localhost:3000/ipn',
+        shipping_method: 'Courier',
+        product_name: 'Computer.',
+        product_category: 'Electronic',
+        product_profile: 'general',
+        cus_name: 'Customer Name',
+        cus_email: 'customer@example.com',
+        cus_add1: 'Dhaka',
+        cus_add2: 'Dhaka',
+        cus_city: 'Dhaka',
+        cus_state: 'Dhaka',
+        cus_postcode: '1000',
+        cus_country: 'Bangladesh',
+        cus_phone: '01711111111',
+        cus_fax: '01711111111',
+        ship_name: 'Customer Name',
+        ship_add1: 'Dhaka',
+        ship_add2: 'Dhaka',
+        ship_city: 'Dhaka',
+        ship_state: 'Dhaka',
+        ship_postcode: 1000,
+        ship_country: 'Bangladesh',
+    };
+    const sslcz = new SSLCommerzPayment(store_id, store_passwd, is_live)
+    sslcz.init(data).then(apiResponse => {
+        // Redirect the user to payment gateway
+        let GatewayPageURL = apiResponse.GatewayPageURL
+        res.redirect(GatewayPageURL)
+        console.log('Redirecting to: ', GatewayPageURL)
+    });
+});
+
+
+router.post('/success/:tourId', (req, res) => {
+    // Handle success action here for POST request
+    // This is where SSLCommerz may send POST data
+    // You can access POST data using req.body
+    // Example: const postData = req.body;
+    // Perform actions based on the POST data
+    const tourId = req.params.tourId;
+    const full_name = req.query.full_name;
+    const phone_no = req.query.phone_no;
+    const totalCount = req.query.totalCount;
+    const totalAmount = parseInt(req.query.totalAmount);
+
+    console.log(req.body);
+    res.redirect(`/confirmBooking/${tourId}?full_name=${full_name}&phone_no=${phone_no}&totalCount=${totalCount}&totalAmount=${totalAmount}`);
+
+});
+
 
 
 //routes for booking confirmation
-router.post('/confirmBooking/:tourId', async (req, res) => {
+router.get('/confirmBooking/:tourId', async (req, res) => {
     if (req.user == null) {
         res.redirect('/login');
     }
@@ -32,30 +106,19 @@ router.post('/confirmBooking/:tourId', async (req, res) => {
         //confirmForm contains the formData that have been sent from the browser
         const bookingId = Date.now().toString();
         const user_id = req.user.user_id;
-        const full_name = req.body.full_name;
-        const phone_no = req.body.phone_no;
-        const maleCount = parseInt(req.body.male_count);
-        const femaleCount = parseInt(req.body.female_count);
-        const childCount = parseInt(req.body.child_count);
-        const totalCount = maleCount + femaleCount;
-
-        const transactionNo = req.body.transactionNo;
-        const bkash_no = req.body.bkash_no;
-        const paymentDate = req.body.paymentDate;
-        const totalAmount = parseInt(req.body.totalAmount);
-
+        const full_name = req.query.full_name;
+        const phone_no = req.query.phone_no;
+        const totalCount = req.query.totalCount;
+        const totalAmount = parseInt(req.query.totalAmount);
 
         //insert booking info into BOOKING_INFO table
-        confirmBooking_query.insertBookingInfo(bookingId,user_id,full_name,phone_no,maleCount,femaleCount,childCount,totalCount,transactionNo,bkash_no,paymentDate,totalAmount,tourId);
+        await confirmBooking_query.insertBookingInfo(bookingId, user_id, full_name, phone_no, totalCount, totalAmount, tourId);
 
         res.redirect(`/confirmation?booking_id=${bookingId}`);
 
     }
 
 });
-
-
-
 
 
 //routers for rendering confirmation page 
