@@ -45,3 +45,12 @@ Both users and admin receive notifications.
 
 User Profiles:
 Users and admin have their profile information.
+
+Usage
+1.Clone the repository:
+    git clone https://github.com/your-username/TOUR_HUB.git
+2.Install dependencies:
+npm install
+3.Run the application:
+nodemon  server.js
+Access the application at http://localhost:3000 in your web browser.
